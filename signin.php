@@ -20,10 +20,28 @@ else{
         VALUES ('$u_name', '$user_pass');";
     $res = pg_query($con,$sql2);
     if($res){
-        echo "Done";
-    }
+        header("Location: register.html");    }
     else{
         echo "Error";
     }
 }
 }
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <tittle>Register 2</tittle>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <form method="post">
+            <label>User Name:</label>
+            <input type="text" name="u_name"> <br>
+            <label>Password:</label>
+            <input type="text" name="user_pass"> <br>
+            <input type="submit" name="submit_done"> <br>
+        </form>
+    </body>
+</html>
