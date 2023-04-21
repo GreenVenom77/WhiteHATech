@@ -25,7 +25,7 @@
         {
             $sql1 = "INSERT INTO user_sign ( first_name, last_name, address_1, city, phone_num, email) VALUES ('$first_name','$last_name','$address_1','$city','$phone_num','$email')";
             $res = pg_query($con,$sql1);
-            
+
             if($res)
             {
                 header("Location: signin.php");
@@ -41,13 +41,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <tittle>Register</tittle>
-        <style>
-
-        </style>
+        <title>Register</title>
+        <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
     </head>
     <body>
         <form method="post">
+            <h2>Info</h2>
             <label>First Name:</label>
             <input type="text" name="first_name"> <br>
             <label>Last Name:</label>
@@ -57,9 +56,9 @@
             <label>City:</label>
             <input type="text" name="city"> <br>
             <label>Phone Number:</label>
-            <input type="text" name="phone_num"> <br>
+            <input type="tel" name="phone" placeholder="12345678910" pattern="[0-9]{4}[0-9]{3}[0-9]{4}" required> <br>
             <label>Email:</label>
-            <input type="text" name="email">
+            <input type="email" name="email">
             <input type="submit" name="submit_done"> <br>
         </form>
     </body>

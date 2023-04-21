@@ -40,13 +40,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <tittle>Register 2</tittle>
-        <style>
-
-        </style>
+        <title>Register 2</title>
+        <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
     </head>
     <body>
         <form method="post">
+            <h2>Signup</h2>
             <label>User Name:</label>
             <input type="text" name="u_name"> <br>
             <label>Password:</label>
