@@ -8,3 +8,4 @@
     $DB_Password = 'teamgrays';
 
     $con = pg_connect("host=$DB_Host dbname=$DB_Name user=$DB_User password=$DB_Password");
+?>
