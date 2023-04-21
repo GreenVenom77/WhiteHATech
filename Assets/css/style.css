@@ -1,9 +1,19 @@
 body{
-    background: #1690A7;
+    background: url("imgs/Background.png")no-repeat;
+    background-position: center;
+    background-size: cover;
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 100vh;
+}
+.Logo {
+    align-self:center;
+    display: inline-block;
+    height: 10vh;
+}
+.Logo img {
+    width: 100px;
+    height: 120px;
 }
 *{
     font-family: sans-serif;
@@ -13,8 +23,9 @@ form{
     width: 500px;
     border: 2px solid #ccc;
     padding: 30px;
-    background: #fff;
+    background: #ffffff46;
     border-radius: 15px;
+    align-self: center;
 }
 h2{
     text-align: center ;

@@ -17,7 +17,7 @@
 
         if(empty($u_name) || empty($user_pass) )
         {
-            header("Location: sign.html?error=User Name and user password is required");
+            header("Location: register2.php?error=User Name and user password is required");
             exit();
         }
         else
@@ -28,7 +28,7 @@
             $res = pg_query($con,$sql2);
             if($res)
             {
-                header("Location: register.html");
+                header("Location: index.php");
             }
             else
             {
@@ -45,6 +45,9 @@
     </head>
     <body>
         <form method="post">
+            <a href="index.php" class="Logo">
+            <img src="Assets/css/imgs/Logo without background.jpg" alt="Logo">
+            </a>
             <h2>Signup</h2>
             <label>User Name:</label>
             <input type="text" name="u_name"> <br>

@@ -18,17 +18,16 @@
 
         if(empty($first_name) || empty($last_name) || empty($address_1) || empty($city) || empty($phone_num) || empty($email))
         {
-            header("Location: register.html?error=User Name is required");
+            header("Location: register1.php?error=User Name is required");
             exit();
         }
         else
         {
             $sql1 = "INSERT INTO user_sign ( first_name, last_name, address_1, city, phone_num, email) VALUES ('$first_name','$last_name','$address_1','$city','$phone_num','$email')";
             $res = pg_query($con,$sql1);
-
             if($res)
             {
-                header("Location: signin.php");
+                header("Location:register2.php");
             }
             else
             {
@@ -46,6 +45,9 @@
     </head>
     <body>
         <form method="post">
+            <a href="index.php" class="Logo">
+            <img src="Assets/css/imgs/Logo without background.jpg" alt="Logo">
+            </a>
             <h2>Info</h2>
             <label>First Name:</label>
             <input type="text" name="first_name"> <br>
@@ -56,7 +58,7 @@
             <label>City:</label>
             <input type="text" name="city"> <br>
             <label>Phone Number:</label>
-            <input type="tel" name="phone" placeholder="12345678910" pattern="[0-9]{4}[0-9]{3}[0-9]{4}" required> <br>
+            <input type="text" name="phone_num"> <br>
             <label>Email:</label>
             <input type="email" name="email">
             <input type="submit" name="submit_done"> <br>

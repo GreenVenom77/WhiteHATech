@@ -16,7 +16,7 @@
 <html>
     <head>
         <title>Home</title>
-        <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="Assets/css/.css">
     </head>
     <body>
 
