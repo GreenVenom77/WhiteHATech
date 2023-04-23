@@ -1,5 +1,5 @@
 body{
-    background: url("imgs/Background.png")no-repeat;
+    
     background-position: center;
     background-size: cover;
     display: flex;
@@ -13,7 +13,7 @@ body{
 }
 .Logo img {
     width: 100px;
-    height: 120px;
+    height: 100px;
 }
 *{
     font-family: sans-serif;

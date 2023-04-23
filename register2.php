@@ -46,7 +46,7 @@
     <body>
         <form method="post">
             <a href="index.php" class="Logo">
-            <img src="Assets/css/imgs/Logo without background.jpg" alt="Logo">
+            <img src="Assets/css/imgs/Logo.png" alt="Logo">
             </a>
             <h2>Signup</h2>
             <label>User Name:</label>

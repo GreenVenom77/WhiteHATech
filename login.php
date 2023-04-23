@@ -61,7 +61,7 @@
         
         <form method="post">
             <a href="index.php" class="Logo">
-            <img src="Assets/css/imgs/Logo without background.jpg" alt="Logo">
+            <img src="Assets/css/imgs/Logo.png" alt="Logo">
             </a>
             <h2>Login</h2>
             <?php if (isset($_GET['error'])){?>
