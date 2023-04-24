@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="x-UA-compatible" content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="font/css/all.css">
+        <link rel="stylesheet" href="../Assets/css/all.css">
         <link rel="stylesheet" href="../Assets/css/style.css">
         <title>WhiteHaTech Store</title>
     </head>
