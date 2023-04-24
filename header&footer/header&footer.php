@@ -23,12 +23,6 @@
                 </ul>
             </div>
         </section>
-        <section>
-
-<-!->
-
-
-        </section>
                  
         <footer id= "foo" class="section-p1">
             <div class="col">
