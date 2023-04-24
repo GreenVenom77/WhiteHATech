@@ -11,7 +11,7 @@
 
     <body>
         <section id="header">
-            <a href="#"><img src="image/logo.png" class="logo" alt=""></a>
+            <a href="#"><img src="../Assets/css/imgs/logo-khaled.png" class="logo" alt=""></a>
 
             <div>
                 <ul id="navbar">
