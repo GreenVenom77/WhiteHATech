@@ -1,22 +1,24 @@
+<?php
+    session_start();
+    if(isset($_SESSION['password']) && isset($_SESSION['user_name']))
+    {
+        echo "<a href='logout.php'>Logout</a>";
+        echo "Hello, ",$_SESSION['user_name'];
+    }
+    else
+    {
+        echo "<a href='login.php'>Login</a>";
+        echo "<a href='register1.php'>Register</a>";
+    }
+?>
+
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
-</head>
-<body>
-    <form action="login.php" method="post">
-        <h2>Login</h2>
-        <?php if (isset($_GET['error'])){?>
-            <p class ="error"><?php echo $_GET['error']; ?></p>
-        <?php } ?>
-        <label>User Name</label>
-        <input type="text" name="uname" placeholder="User Name"><br>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" type="text/css" href="Assets/css/.css">
+    </head>
+    <body>
 
-        <label>Password</label>
-        <input type="Password" name="Password" placeholder="Password"><br>
-
-        <button type="submit">Login</button>
-</form>
-</body>
+    </body>
 </html>
