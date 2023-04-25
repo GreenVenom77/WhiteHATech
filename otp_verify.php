@@ -21,18 +21,16 @@
         }
         else
         {
-            $sql3=("SELECT * FROM users where verfication_code = '$otpv'");
+            $sql3=("SELECT * FROM users where verification_code = '$otpv'");
             $result = pg_query($con,$sql3);
             if(pg_num_rows($result) === 1)
             {
                 $row = pg_fetch_assoc($result);
-                if($row['verfication_code']=== $otpv)
+                if($row['verification_code']=== $otpv)
                 {
                     $u_name = $row['u_name'];
                     $otpv = "0";
-                    $sql4=("UPDATE users
-                    SET verfication_code= '$otpv'
-                    WHERE u_name = '$u_name';");
+                    $sql4=("UPDATE users SET verfication_code= '$otpv' WHERE u_name = '$u_name';");
                     $result2 = pg_query($con,$sql4);
 
                     header("Location: login.php");
