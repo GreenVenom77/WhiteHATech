@@ -1,4 +1,5 @@
 <?php
+
     include "conn.php";
 
     if(isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['address_1']) && isset($_POST['city']) && isset($_POST['phone_num']))
@@ -41,8 +42,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Register</title>
-        <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
+        <title>Info</title>
+        <link rel="stylesheet" type="text/css" href="Assets/css/lr.css">
     </head>
     <body>
         <form method="post">
