@@ -16,7 +16,7 @@
 
         if(empty($otpv))
         {
-            header("Location: otp_verify.php?error=otp is required");
+            header("Location: otp_pass_verify.php?error=otp is required");
             exit();
         }
         else
@@ -26,21 +26,21 @@
             if(pg_num_rows($result) === 1)
             {
                 $row = pg_fetch_assoc($result);
-                if($row['verfication_code']=== $otpv)
+                if($row['verfication_code'] === $otpv)
                 {
-                    $u_name = $row['u_name'];
+                    $u_id = $row['u_id'];
                     $otpv = "0";
                     $sql4=("UPDATE users
                     SET verfication_code= '$otpv'
-                    WHERE u_name = '$u_name';");
+                    WHERE u_id = '$u_id';");
                     $result2 = pg_query($con,$sql4);
 
-                    header("Location: login.php");
+                    header("Location: newpass.php");
                 }
             }
             else
             {
-                echo "Error";
+                header("Location: otp_verify.php?error=otp is wrong");
             }
         }
     }

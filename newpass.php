@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     include "conn.php";
 
     use PHPMailer\PHPMailer\PHPMailer;
@@ -10,9 +12,8 @@
     require 'phpmailer/src/PHPMailer.php';
     require 'phpmailer/src/SMTP.php';
 
-    if(isset($_POST['u_name']) && isset($_POST['email']) && isset($_POST['user_pass']))
+    if(isset($_POST['password']))
     {
-
         function validate($data)
         {
             $data = trim($data);
@@ -21,23 +22,24 @@
             return $data;
         }
 
-        $u_name = validate($_POST['u_name']);
-        $email = validate($_POST['email']);
-        $user_pass = validate($_POST['user_pass']);
+        $password = validate($_POST['password']);
 
-        if(empty($u_name) || empty($user_pass) || empty($email))
+        if(empty($password))
         {
-            header("Location: register2.php?error=User Name, password and Email are required");
+            header("Location: newpass.php?error=Password is required");
             exit();
         }
         else
         {
-            $otp_str = str_shuffle("0123456789");
-            $otp = substr($otp_str, 0, 6);
-            $sql2 = "INSERT INTO users(u_name, user_pass,verification_code, email) VALUES ('$u_name', '$user_pass', '$otp', '$email');";
-            $res = pg_query($con,$sql2);
-            if($res)
+            $email = $_SESSION['email'];
+
+            $sql=("UPDATE users SET user_pass= '$password' WHERE email= '$email'");
+            $result = pg_query($con,$sql);
+
+            $row = pg_fetch_assoc($result);
+            if($row['user_pass'] === $password)
             {
+
                 $mail = new PHPMailer(true);
             
                 $mail->isSMTP();
@@ -53,25 +55,28 @@
             
                 $mail->isHTML(true);                                  //Set email format to HTML
                 $mail->Subject = 'OTP Code';
-                $mail->Body = 'Hello there, Your OTP is: '.$otp;
+                $mail->Body = 'Hello there, Your Password has been changed successfully!';
             
                 $mail->send();
                 echo 
                 "
                     <script>
-                        alert('the OTP has been sent to your E-Mail');
-                        document.location.href = 'otp_verify.php';
+                        alert('The Password has been changed successfully');
+                        document.location.href = 'login.php';
                     </script>
                 ";
+
+                session_unset();
+                session_abort();
             }
         }
     }
-    
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Signup</title>
+        <title>Reset Password</title>
         <link rel="stylesheet" type="text/css" href="Assets/css/lr.css">
     </head>
     <body>
@@ -79,13 +84,9 @@
             <a href="index.php" class="Logo">
             <img src="Assets/css/imgs/Logo.png" alt="Logo">
             </a>
-            <h2>Signup</h2>
-            <label>User Name:</label>
-            <input type="text" name="u_name" required> <br>
-            <label>Email:</label>
-            <input type="email" name="email" required> <br>
-            <label>Password:</label>
-            <input type="password" name="user_pass" required> <br>
+            <h2>Enter your new Password</h2>
+            <label>New Password:</label>
+            <input type="Password" name="password" required> <br>
             <input type="submit" name="submit_done"> <br>
         </form>
     </body>
