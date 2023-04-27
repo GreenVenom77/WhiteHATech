@@ -230,16 +230,19 @@ footer .logo{
 footer h4{
     font-size: 14px;
     padding-bottom: 20px; 
+    margin-left: 10px;
 }
 footer p{
     font-size: 13px;
     margin: 0 0 8px 0;
+    margin-left: 10px;
 }
 footer a{
     font-size: 13px;
     text-decoration: none;
     color: #F6F6F6;
     margin-bottom: 10px;
+    margin-left: 10px;
 }
 footer .follow{
     margin-top: 20px;
@@ -272,4 +275,49 @@ footer .copyright{
 }
 #foo .icons{
     color: #fff;
+}
+
+.box-container{
+    padding: 2% 8%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(18rem,1fr));
+    justify-content: center;
+    align-items: center;
+}
+.box-container .box{
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+padding:1rem 0 ;
+ background: rgba(255, 255, 255, 0.40);
+    border: 2px solid rgba(255, 255, 255, 0.40) ;
+    margin: 1rem;
+    text-align: center;
+    border-radius: 5px;
+}
+.box-container .box h3{
+    font-size: 3rem;
+    color: #000;
+}
+.box-container .box p{
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 1rem 0;
+}
+
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2rem 0;
+    color: #0A3DAB;
+}
+
+form .btn{
+    cursor: pointer;
+    background: #545bba;
+    color: #fff;
+    text-transform: uppercase;
+}
+form .btn:hover{
+    background: transparent;
+    border: 2px solid pink;
+    color: #F4672C;
 }

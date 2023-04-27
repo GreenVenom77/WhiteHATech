@@ -5,8 +5,8 @@
 }
 
 .logo {
-    width: 7%;
-    height: 7%;
+    width: 80%;
+    height: 80%;
 }
 
 .card-img-top {
@@ -16,9 +16,13 @@
 }
 
 .card {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     transition: all 0.3s;
 }
 
 .card:hover {
-    transform: scale(1.15);
+    transform: scale(1.07);
 }

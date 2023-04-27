@@ -1,0 +1,53 @@
+.order-container
+{
+    padding: 3% 7%;
+}
+
+.order-container .box-container
+{
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.order-container .box
+{
+    text-align: left;
+}
+
+.order-container .box p
+{
+    margin-bottom:.5rem;
+    text-transform: capitalize;
+    color: #ffb703;
+}
+
+.order-container .box span
+{
+    color: #555;
+}
+
+.order-container form
+{
+    text-align: center;
+}
+
+.order-container form select
+{
+    width: 50%;
+    margin: 1rem, 0;
+    padding: .5rem, 0;
+    cursor: pointer;
+}
+
+.order-container form input
+{
+    box-shadow: none;
+    width: 45%;
+    text-transform: capitalize;
+}
+
+.box-container .delete-order
+{
+    padding: .6rem, 12%;
+}

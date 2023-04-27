@@ -32,6 +32,10 @@
 
             $sql=("SELECT * FROM users where u_name = '$uname' and user_pass='$Pass'");
             $result = pg_query($con,$sql);
+
+            $sqla=("SELECT * FROM admin where user_name = '$uname' and password='$Pass'");
+            $resulta = pg_query($con,$sqla);
+
             if(pg_num_rows($result) === 1)
             {
                 $row = pg_fetch_assoc($result);
@@ -40,6 +44,17 @@
                     $_SESSION['user_name']=$row['u_name'];
                     $_SESSION['password']=$row['user_pass'];
                     header("Location: index.php");
+                    exit();
+                }
+            }
+            elseif(pg_num_rows($resulta) === 1)
+            {
+                $row = pg_fetch_assoc($resulta);
+                if($row['user_name']=== $uname && $row['password']===$Pass)
+                {
+                    $_SESSION['user_name']=$row['u_name'];
+                    $_SESSION['password']=$row['user_pass'];
+                    header("Location: register1.php");
                     exit();
                 }
             }
