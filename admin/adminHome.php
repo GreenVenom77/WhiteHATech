@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+include "../conn.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@ include "conn.php";
 
     <body>
         
-    <section id="header">
+        <section id="header">
             <a href="#"><img src="image/logo.png" class="logo" alt=""></a>
             <div>
                 <ul id="navbar">
@@ -118,6 +118,6 @@ include "conn.php";
                 </div>
             </div>
         </section>
-       <?php include 'footer.php' ?>
+        <?php include 'footer.php' ?>
         <script src="script.js"></script>
     </body>

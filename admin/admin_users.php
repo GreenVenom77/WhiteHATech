@@ -1,5 +1,5 @@
 <?php
-include "conn.php"; 
+include "../conn.php"; 
 if(isset($_GET['delete'])){
     $delete_id = $_GET['delete'];
     pg_query($con,"DELETE FROM users WHERE u_id='$delete_id';") or  die('queury failed');

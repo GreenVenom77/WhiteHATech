@@ -1,5 +1,5 @@
 <?php 
-include "conn.php";
+include "../conn.php";
 if(isset($_POST['add_product'])){
     $product_name = pg_escape_string($con,$_POST['name']);
     $product_select = pg_escape_string($con,$_POST['category']);
