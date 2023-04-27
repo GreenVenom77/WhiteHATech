@@ -64,8 +64,8 @@
                             <option value = "pending">Pending</option>
                             <option value = "completed">completed</option>
                         </select>
-                        <input type = "submit" name = "update_order" value = "update order" calss = "btn">
-                        <a href = "orders.php?delete=<?php echo $fetch_orders['id']; ?>" calss = "delete" onclick="return confirm('delete this')"></a>
+                        <input type = "submit" name = "update_order" value = "update order" class = "btn">
+                        <a href = "orders.php?delete=<?php echo $fetch_orders['id']; ?>" calss = "delete" onclick="return confirm('delete this')">Delete</a>
                     </form>
                 </div>
                 <?php 
