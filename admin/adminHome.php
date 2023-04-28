@@ -22,6 +22,7 @@ include "../conn.php";
                     <li><a href="admin_products.php">Product</a></li>
                     <li><a href="admin_users.php">Users</a></li>
                     <li><a href="orders.php">Orders</a></li>
+                    <li><a href="adminMessages.php">Messages</a></li>
                     <li><i class="fa-solid fa-list" id="menu-btn"></i></li>
                     <li><i class="fa-solid fa-user" id="user-btn"></i></li>
                 </ul>
@@ -29,7 +30,7 @@ include "../conn.php";
             <div class="user-box">
                 <p>username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
                 <p>email: <span><?php echo $_SESSION['password']; ?></span></p>
-                <form method="post" action="user/logout.php" class="logout">
+                <form method="post" action="../logout.php" class="logout">
                     <button name="logout" class="logout-btn">LOG OUT</button>
                 </form>
             </div>
@@ -69,7 +70,7 @@ include "../conn.php";
                     $num_of_orders= pg_num_rows($select_orders);
                     ?>
                     <h3><?php echo $num_of_orders; ?></h3>
-                    <p>order placed</p>
+                    <p>orders placed</p>
                 </div>
                 <div class="box">
                     <?php
@@ -87,7 +88,7 @@ include "../conn.php";
                     $num_of_users= pg_num_rows($select_users);
                     ?>
                     <h3><?php echo $num_of_users; ?></h3>
-                    <p>registered user</p>
+                    <p>registered users</p>
                 </div>
                 <div class="box">
                     <?php
@@ -109,12 +110,12 @@ include "../conn.php";
                 </div>
                 <div class="box">
                     <?php
-                    $select_users = pg_query($con,"SELECT * FROM users")
+                    $select_messages = pg_query($con,"SELECT from users where message is not NULL")
                     or die('queury failed');
-                    $num_of_users= pg_num_rows($select_users);
+                    $num_of_messages= pg_num_rows($select_messages);
                     ?>
-                    <h3><?php echo $num_of_users; ?></h3>
-                    <p>new message!!!</p>
+                    <h3><?php echo $num_of_messages; ?></h3>
+                    <p>new messages!!!</p>
                 </div>
             </div>
         </section>

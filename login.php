@@ -54,7 +54,7 @@
                 {
                     $_SESSION['user_name']=$row['u_name'];
                     $_SESSION['password']=$row['user_pass'];
-                    header("Location: register1.php");
+                    header("Location:admin/adminHome.php");
                     exit();
                 }
             }

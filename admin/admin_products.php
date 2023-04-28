@@ -88,6 +88,7 @@ if(isset($_POST['update_product'])){
                     <li><a class="active" href="admin_products.php">Product</a></li>
                     <li><a href="admin_users.php">Users</a></li>
                     <li><a href="orders.php">Orders</a></li>
+                    <li><a href="adminMessages.php">Messages</a></li>
                     <li><i class="fa-solid fa-list" id="menu-btn"></i></li>
                     <li><i class="fa-solid fa-user" id="user-btn"></i></li>
                 </ul>
@@ -95,7 +96,7 @@ if(isset($_POST['update_product'])){
             <div class="user-box">
                 <p>username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
                 <p>email: <span><?php echo $_SESSION['password']; ?></span></p>
-                <form method="post" action="user/logout.php" class="logout">
+                <form method="post" action="../logout.php" class="logout">
                     <button name="logout" class="logout-btn">LOG OUT</button>
                 </form>
             </div>
