@@ -23,11 +23,11 @@
     <body>
         
     <section id="header">
-            <a href="#"><img src="image/logo.png" class="logo" alt=""></a>
+            <a href="#"><img src="image/logow2.png" class="logo" alt=""></a>
             <div>
                 <ul id="navbar">
                     <li><a href="adminHome.php">Home</a></li>
-                    <li><a href="admin_products.php">Product</a></li>
+                    <li><a href="admin_products.php">Products</a></li>
                     <li><a  href="admin_users.php">Users</a></li>
                     <li><a class="active" href="orders.php">Orders</a></li>
                     <li><a href="adminMessages.php">Messages</a></li>

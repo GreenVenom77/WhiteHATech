@@ -15,15 +15,12 @@ if(isset($_POST['add_product'])){
 
     $select_product_name= pg_query($con,"SELECT * FROM product where product_name = '$product_name';")  or die('queury failed');
     if(pg_num_rows($select_product_name)>0){
-        echo "product exist";
     }else{
         $insert_product = pg_query($con,"INSERT INTO product( category_id, product_name, unit, price, brand, type, description, image) VALUES ( '$product_select', '$product_name', '$product_unit', '$product_price','$product_brand' , '$product_type', '$product_details', '$image');") or die('queury failed');
         if($insert_product){
             if($image_size>2000000){
-                echo "file too large";
             }else{
                 move_uploaded_file($image_tmp_name,$image_folder);
-                echo "product added successfully";
             }
         }
     }
@@ -81,11 +78,11 @@ if(isset($_POST['update_product'])){
     <body>
         
     <section id="header">
-            <a href="#"><img src="image/logo.png" class="logo" alt=""></a>
+            <a href="#"><img src="image/logow2.png" class="logo" alt=""></a>
             <div>
                 <ul id="navbar">
                     <li><a href="adminHome.php">Home</a></li>
-                    <li><a class="active" href="admin_products.php">Product</a></li>
+                    <li><a class="active" href="admin_products.php">Products</a></li>
                     <li><a href="admin_users.php">Users</a></li>
                     <li><a href="orders.php">Orders</a></li>
                     <li><a href="adminMessages.php">Messages</a></li>
@@ -139,7 +136,7 @@ if(isset($_POST['update_product'])){
                     <label>Product Image</label>
                     <input type="file" name="image" accept="image/jpg , image/png, image/jpeg, image/webp" required>
                 </div>
-                <input type="submit" name="add_product" value="add_product" class="btn" onclick=""my>
+                <input type="submit" name="add_product" value="add product" class="btn" onclick=""my>
             </form>
         </section>
         <!----------show products section ----------->

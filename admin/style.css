@@ -75,7 +75,7 @@ body {
 
 #navbar li a {
     text-decoration: none;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 600;
     color: #ffffff;
     transition: 0.3s ease;
@@ -328,13 +328,17 @@ footer .copyright{
     }
     #navbar{
         position: absolute;
-        top: 149%;
+        top: 100%;
         left: 0;
         right: 0;
         border-top: 1px solid #aa4ff3;
-        background: #fff;
+        background: #000000;
         transition: .3s ease;
         clip-path: polygon(0 0,100% 0 ,100% 0,0 0);
+    }
+    #navbar a{
+        display: block;
+        margin: 2rem;
     }
     #navbar.active{
         clip-path: polygon(0 0,100% 0 ,100% 100%,0 100%);
@@ -365,6 +369,11 @@ padding:1rem 0 ;
 .box-container .box h3{
     font-size: 3rem;
     color: #000;
+}
+.box-container .box img
+{
+    width: 100%;
+    height: 170px;
 }
 .box-container .box p{
     font-size: 18px;
@@ -402,7 +411,7 @@ form .btn:hover{
 }
 .add-product, .show-products , .update-container{
     background-image: url('image/banner5.png');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 .add-product form{
@@ -472,7 +481,7 @@ form .btn:hover{
     width: 100%;
     overflow-y: auto;
     background-image: url(image/banner5.png);
-    background-size: cover;
+    background-size:cover;
     background-repeat: no-repeat;
     z-index: 1100;
     padding: 2rem;
