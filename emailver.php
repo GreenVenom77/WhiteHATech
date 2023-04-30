@@ -94,12 +94,12 @@
     <body>
         <form method="post">
             <a href="index.php" class="Logo">
-            <img src="Assets/css/imgs/Logo.png" alt="Logo">
+            <img src="Assets/imgs/Logow2.png" alt="Logo">
             </a>
             <h2>Enter your Email</h2>
             <label>Email:</label>
             <input type="email" name="email" required> <br>
-            <input type="submit" name="submit_done"> <br>
+            <input class="butn" type="submit" name="submit_done"> <br>
         </form>
     </body>
 </html>

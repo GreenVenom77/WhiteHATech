@@ -359,8 +359,8 @@ footer .copyright{
 }
 .box-container .box{
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
-padding:1rem 0 ;   
- background: rgba(255, 255, 255, 0.40);
+    padding:1rem 0 ;   
+    background: rgba(255, 255, 255, 0.40);
     border: 2px solid rgba(255, 255, 255, 0.40) ;
     margin: 1rem;
     text-align: center;

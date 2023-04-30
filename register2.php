@@ -77,7 +77,7 @@
     <body>
         <form method="post">
             <a href="index.php" class="Logo">
-            <img src="Assets/css/imgs/Logo.png" alt="Logo">
+            <img src="Assets/imgs/Logow2.png" alt="Logo">
             </a>
             <h2>Signup</h2>
             <label>User Name:</label>
@@ -86,7 +86,7 @@
             <input type="email" name="email" required> <br>
             <label>Password:</label>
             <input type="password" name="user_pass" required> <br>
-            <input type="submit" name="submit_done"> <br>
+            <input class="butn" type="submit" name="submit_done"> <br>
         </form>
     </body>
 </html>

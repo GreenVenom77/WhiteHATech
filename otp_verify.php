@@ -30,7 +30,7 @@
                 {
                     $u_name = $row['u_name'];
                     $otpv = "0";
-                    $sql4=("UPDATE users SET verfication_code= '$otpv' WHERE u_name = '$u_name';");
+                    $sql4=("UPDATE users SET verification_code= '$otpv' WHERE u_name = '$u_name';");
                     $result2 = pg_query($con,$sql4);
 
                     header("Location: login.php");
@@ -53,12 +53,12 @@
     <body>
         <form method="post">
             <a href="index.php" class="Logo">
-            <img src="Assets/css/imgs/Logo.png" alt="Logo">
+            <img src="Assets/imgs/Logow2.png" alt="Logo">
             </a>
             <h2>Verification</h2>
             <label>OTP:</label>
             <input type="text" name="otpv" required> <br>
-            <input type="submit" name="submit_done"> <br>
+            <input class="butn" type="submit" name="submit_done"> <br>
         </form>
     </body>
 </html>

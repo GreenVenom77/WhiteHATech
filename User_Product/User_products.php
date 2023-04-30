@@ -3,127 +3,129 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="x-UA-compatible" content="IE-edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Assets/css/all.css">
-    <link rel="stylesheet" href="../Assets/css/style.css">
-    <link rel="stylesheet" hrer="../.css">
-    <!--bootstrap CSS link-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!--font awesome link-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="x-UA-compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../Assets/css/all.css">
+        <link rel="stylesheet" href="../Assets/css/style.css">
+        <link rel="stylesheet" hrer="../user_products.css">
+        <!--bootstrap CSS link-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!--font awesome link-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!--css file -->
-    <link rel="stylesheet" href="user_products.css">
+        <!--css file -->
+        <link rel="stylesheet" href="user_products.css">
 
 
-    <title>WhiteHaTech Store</title>
-</head>
+        <title>WhiteHaTech Store</title>
+    </head>
 
-<body>
-    <section id="header">
-        <a href="#"><img src="../Assets/css/imgs/logo-khaled.png" class="logo" alt=""></a>
+    <body>
+        <section id="header">
+            <a href="#"><img src="../Assets/imgs/Logow2.png" class="logo" alt=""></a>
 
-        <div>
-            <ul id="navbar">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="Product.html">Product</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></i></a></li>
-            </ul>
+            <div>
+                <ul id="navbar">
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="Product.html">Product</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></i></a></li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="sidebar">
+            <div class="col-md-2 bg-secondary p-0">
+                <ul class="navbar-nav me-auto text-center">
+                    <li class="nav-item bg-info">
+                        <a href="" class="nav-link text-light">
+                            <h4>Pc Accessorise</h4>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-light">
+                            Mouse
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-light">
+                            pc
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-light">
+                            keyboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-light">
+                            ideapad
+                        </a>
+                    </li>
+                </ul>
+
+
+                <ul class="navbar-nav me-auto text-center">
+                    <li class="nav-item bg-info">
+                        <a href="" class="nav-link text-light">
+                            <h4>Categories</h4>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-light">
+                            Categories1
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-light">
+                            Categories2
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-light">
+                            Categories3
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-light">
+                            Categories4
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </section>
-    <div class="sidebar">
-        <div class="col-md-2 bg-secondary p-0">
-            <ul class="navbar-nav me-auto text-center">
-                <li class="nav-item bg-info">
-                    <a href="" class="nav-link text-light">
-                        <h4>Pc Accessorise</h4>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">
-                        Mouse
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">
-                        pc
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">
-                        keyboard
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">
-                        ideapad
-                    </a>
-                </li>
-            </ul>
-
-
-            <ul class="navbar-nav me-auto text-center">
-                <li class="nav-item bg-info">
-                    <a href="" class="nav-link text-light">
-                        <h4>Categories</h4>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">
-                        Categories1
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">
-                        Categories2
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">
-                        Categories3
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">
-                        Categories4
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    </div>
-    <!--third child-->
-    <div class="row">
-        <div class="col-md-10">
-            <!--products-->
-            <div class="row">
-                <div class="col-md-4 mb-2">
-                    <div class="card">
-                        <img src="OIP.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.</p>
-                            <a href="#" class="btn btn-secondary text-light">Add To Cart</a>
-                            <a href="#" class="btn btn-secondary text-light">View More</a>
+        <!--third child-->
+        <div class="row">
+            <div class="col-md-10">
+                <!--products-->
+                <div class="row2">
+                    <div class="col-md-4 mb-2">
+                        <div class="card">
+                            <img src="OIP.jpeg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-secondary text-light">Add To Cart</a>
+                                <a href="#" class="btn btn-secondary text-light">View More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!--fourth child-->
 
         <footer id="foo" class="section-p1">
             <div class="col">
-                <img src="image/logo.png" alt="">
+                <img src="../Assets/imgs/Logo2.png" alt="">
                 <h4>Contact</h4>
                 <p><strong>Address: </strong>Suez, El-Salam</p>
                 <p><strong>Phone: </strong> +201143320506</p>
@@ -167,7 +169,8 @@
         <!--bootstrap JS link-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
-</body>
+            crossorigin="anonymous">
+        </script>
+    </body>
 
 </html>

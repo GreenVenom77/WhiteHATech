@@ -82,12 +82,12 @@
     <body>
         <form method="post">
             <a href="index.php" class="Logo">
-            <img src="Assets/css/imgs/Logo.png" alt="Logo">
+            <img src="Assets/imgs/Logow2.png" alt="Logo">
             </a>
             <h2>Enter your new Password</h2>
             <label>New Password:</label>
             <input type="Password" name="password" required> <br>
-            <input type="submit" name="submit_done"> <br>
+            <input class="butn" type="submit" name="submit_done"> <br>
         </form>
     </body>
 </html>

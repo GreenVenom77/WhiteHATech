@@ -48,7 +48,7 @@
     <body>
         <form method="post">
             <a href="index.php" class="Logo">
-            <img src="Assets/css/imgs/Logo.png" alt="Logo">
+            <img src="Assets/imgs/Logow2.png" alt="Logo">
             </a>
             <h2>Info</h2>
             <label>First Name:</label>
@@ -61,7 +61,7 @@
             <input type="text" name="city" required> <br>
             <label>Phone Number:</label>
             <input type="text" name="phone_num" required> 
-            <input type="submit" name="submit_done"> <br>
+            <input class="butn" type="submit" name="submit_done"> <br>
         </form>
     </body>
 </html>

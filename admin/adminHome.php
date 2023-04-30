@@ -1,5 +1,5 @@
 <?php
-include "../conn.php";
+    include "../conn.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,8 +28,8 @@ include "../conn.php";
                 </ul>
             </div>
             <div class="user-box">
-                <p>username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
-                <p>email: <span><?php echo $_SESSION['password']; ?></span></p>
+                <p>Username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
+                <p>Password: <span><?php echo $_SESSION['password']; ?></span></p>
                 <form method="post" action="../logout.php" class="logout">
                     <button name="logout" class="logout-btn">LOG OUT</button>
                 </form>

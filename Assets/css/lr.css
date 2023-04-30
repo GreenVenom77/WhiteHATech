@@ -1,9 +1,12 @@
 body{
-    
+    background-image: url(../imgs/header.jpg);
+    overflow: hidden;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
+    width: 100%;
     height: 100vh;
 }
 .Logo {
@@ -11,24 +14,21 @@ body{
     display: inline-block;
     height: 10vh;
 }
-.Logo img {
-    width: 100px;
-    height: 100px;
-}
 *{
     font-family: sans-serif;
     box-sizing: border-box;
 }
 form{
     width: 500px;
-    border: 2px solid #ccc;
+    border: 2px solid #d4a680;
     padding: 30px;
-    background: #ffffff46;
+    background: #3b29a046;
     border-radius: 15px;
     align-self: center;
 }
 h2{
     text-align: center ;
+    color: #ffff;
     margin-bottom: 40px;
 }
 input{
@@ -39,21 +39,30 @@ input{
     margin: 10px auto;
 }
 label{
-    color: #888;
+    color: #fff9f9;
     font-size: 18px;
     padding: 10px;
 }
-button{
+.butn{
     float: right;
-    background: #555;
     padding: 10px 15px;
-    color: #fff;
     border-radius: 5px;
     margin-right: 10px;
     border: none;
+    cursor: pointer;
+    background: #3f37c9;
+    color: #fff;
+    text-transform: uppercase;
 }
-button:hover{
-    opacity: .7;
+.butn:hover{
+    background: transparent;
+    border: 2px solid pink;
+    color: #F4672C;
+}
+a
+{
+    color: #F4672C;
+    text-decoration: none;
 }
 .error{
     background: #F2DEDE;
