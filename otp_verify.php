@@ -28,9 +28,10 @@
                 $row = pg_fetch_assoc($result);
                 if($row['verification_code']=== $otpv)
                 {
-                    $u_name = $row['u_name'];
+                    $u_id = $row['u_id'];
                     $otpv = "0";
-                    $sql4=("UPDATE users SET verification_code= '$otpv' WHERE u_name = '$u_name';");
+                    $isVerified = "1";
+                    $sql4=("UPDATE users SET verification_code= '$otpv', is_verified= '$isVerified' WHERE u_id = '$u_id';");
                     $result2 = pg_query($con,$sql4);
 
                     header("Location: login.php");

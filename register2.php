@@ -34,7 +34,8 @@
         {
             $otp_str = str_shuffle("0123456789");
             $otp = substr($otp_str, 0, 6);
-            $sql2 = "INSERT INTO users(u_name, user_pass,verification_code, email) VALUES ('$u_name', '$user_pass', '$otp', '$email');";
+            $isVerified = "0";
+            $sql2 = "INSERT INTO users(u_name, user_pass,verification_code, email, is_verified) VALUES ('$u_name', '$user_pass', '$otp', '$email', '$isVerified');";
             $res = pg_query($con,$sql2);
             if($res)
             {
