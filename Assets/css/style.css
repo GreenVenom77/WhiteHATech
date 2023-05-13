@@ -155,7 +155,7 @@ body {
     border-radius: 50px;
     background-color: #e8f6ea;
     font: weight 700px;
-    color:#F4672C ;
+    color:#F4672C;
 }
 #newsletter {
     display: flex;
@@ -320,4 +320,69 @@ form .btn:hover{
     background: transparent;
     border: 2px solid pink;
     color: #F4672C;
+}
+.user-box {
+    position: absolute;
+    top: 80%;
+    right: 0.9%;
+    width: 18rem;
+    padding: .5rem .5rem;
+    background: #2873ff;
+    border-radius: 5px;
+    text-transform: capitalize;
+    color: #fff;
+    font-size: 12px;
+    display: none;
+    transition: .5s;
+}
+.user-box.active{
+    display: block;
+}
+.user-box span{
+    text-transform: none;
+    color: #ffffff;
+    font-size: 17px;
+}
+.user-box p{
+    text-transform: none;
+    color: #ffffff;
+    font-size: 17px;
+}
+.logout-btn{
+    background: #433bd4;
+    width: 13rem;
+    height: 40px;
+    padding: 5px 5px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+.login-btn,
+.register-btn
+{
+    background: #433bd4;
+    width: 13rem;
+    height: 40px;
+    padding: 5px 5px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+#navbar li .fa-user{
+    cursor: pointer;
+    color:white ;
+}
+#navbar li .fa-user:hover
+{
+    content: "";
+    color: #fe5c02;
+    transition: 0.3s ease;
 }

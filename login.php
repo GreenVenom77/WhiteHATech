@@ -43,6 +43,7 @@
                 {
                     $_SESSION['user_name']=$row['u_name'];
                     $_SESSION['password']=$row['user_pass'];
+                    $_SESSION['email']=$row['email'];
                     header("Location: index.php");
                     exit();
                 }

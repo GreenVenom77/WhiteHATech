@@ -1,0 +1,202 @@
+.slide-show-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.wrapper1,
+.wrapper2,
+.wrapper3 
+{
+    background-color: #eee;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.wrapper1
+{
+    background-image: url(../imgs/Background.png);
+}
+.wrapper2
+{
+    background-image: url(../imgs/header.jpg);
+    animation: slideTwoAnim 20s infinite;
+}
+.wrapper3
+{
+    background-image: url(../imgs/online.jpg);
+    animation: slideThreeAnim 20s infinite;
+}
+.wrapper-text
+{
+    font: 700 40px/1.4 Roboto;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes slideTwoAnim {
+    0%{
+        opacity: 0;
+    }
+    17%{
+        opacity: 0;
+    }
+    33%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    67%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes slideThreeAnim {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    67%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.row
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+.row .card
+{
+    background: url(../imgs/Shelfs.jpg)no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    margin-bottom: 1rem;
+}
+.row .card .details
+{
+    position: absolute;
+    bottom: 30%;
+    left: 10%;
+}
+.row .card h1
+{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.row .card a
+{
+    background: white;
+    color: orange;
+    font-size: 18px;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid orange;
+    text-transform: uppercase;
+}
+.row .card a:hover
+{
+    background: orange;
+    color: white;
+    border: 1px solid white;
+}
+.row .card :nth-child(1)
+{
+    background: transparent;
+}
+.row .card :nth-child(2)
+{
+    background: transparent;
+}
+.categories
+{
+    padding: 3%;
+}
+.categories .box-container 
+{
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+.categories .box-container .box
+{
+    font-size: 1.5rem;
+    color: gray;
+    background-color: transparent;
+    box-shadow: none;
+    cursor: pointer;
+}
+.categories .box-container .box:hover
+{
+    color: orange;
+}
+.categories .box-container .box img
+{
+    width: 200px;
+    height: 200px;
+    padding: 2px;
+    margin: 1rem 0;
+    border-radius: 50%;
+    border: 2px solid orange;
+}
+.categories .box-container .box span
+{
+    text-transform: uppercase;
+}
+.banner3
+{
+    background: url(../imgs/banner3.jpg)no-repeat;
+    background-size: cover;
+    background-position: center center;
+    max-width: 1400px;
+    margin: 3rem auto;
+    padding-left: 5%;
+    height: 300px;
+    color: #fff;
+}
+.banner3 .detail
+{
+    padding: 4% 7%;
+    color: #fff;
+}
+.banner3 .detail h1
+{
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+    color: #fff;
+}
+.banner3 .detail p
+{
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+.banner3 .detail a
+{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    padding: .5rem 2rem;
+    border: 1px solid #fff;
+}
