@@ -30,6 +30,9 @@
                     <li><a class="active" href="adminMessages.php">Messages</a></li>
                     <li><i class="fa-solid fa-list" id="menu-btn"></i></li>
                     <li><i class="fa-solid fa-user" id="user-btn"></i></li>
+                    <li><form method="post" action="certain.php"><input type="text" placeholder="Search..." name="search">
+                    <button type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button></form></li>
+                </form></li>
                 </ul>
             </div>
             <div class="user-box">
