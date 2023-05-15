@@ -131,7 +131,7 @@
                 ?>
             </div>
             <div class="wishlist_total">
-                <h1>total amount payable : <span>$<?php echo $grand_total ?>/-</span></h1><br><br>
+                <h1>total amount payable : <span>$<?php echo $grand_total ?></span></h1><br><br>
                 <a href="shop.php" class="btn2">continue shopping</a>
                 <a href="wishlist.php?delete_all" class="btn2 <?php echo ($grand_total>1)?'':'disabled'?>" onclick="return confirm('do you want to delete all from wishlist')">delete all</a>
             </div>
