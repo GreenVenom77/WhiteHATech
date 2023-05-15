@@ -88,7 +88,7 @@
 
         <footer id= "foo" class="section-p1">
             <div class="col">
-                <img src="image/logo.png" alt="">
+                <img src="image/logo2.png" alt="">
                 <h4>Contact</h4>
                 <p><strong>Address: </strong>Suez, El-Salam</p>
                 <p><strong>Phone: </strong> +201143320506</p>
