@@ -34,7 +34,7 @@
                 </ul>
             </div>
             <div class="user-box">
-                <?php if(isset($_SESSION['password']) && isset($_SESSION['user_name'])){ ?>
+                <?php if(isset($_SESSION['email']) && isset($_SESSION['user_name'])){ ?>
                     <p>Username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
                     <p>Email: <span><?php echo $_SESSION['email']; ?></span></p>
                     <button name="orders" class="orders-btn" onclick="window.location.href='orders.php'">Orders</button>
