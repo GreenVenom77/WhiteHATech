@@ -77,7 +77,8 @@
             <a href="wishlist.php"><i class="fa-solid fa-heart"></i><span>(<?php echo $w_n_r;?>)</span></a>
             <?php 
                 if(isset($user_id)){
-                    $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num =5;") or die ('query failed');
+                    $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num=last_invoice() AND u_id= '$user_id'") or die ('query failed');
+
                     $c_n_r=pg_num_rows($s_c);
                 }
             ?>
