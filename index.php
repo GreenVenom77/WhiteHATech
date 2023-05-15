@@ -37,16 +37,16 @@
                 <?php if(isset($_SESSION['password']) && isset($_SESSION['user_name'])){ ?>
                     <p>Username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
                     <p>Email: <span><?php echo $_SESSION['email']; ?></span></p>
-                    <form method="post" action="logout.php" class="logout">
-                        <button name="logout" class="logout-btn">LOG OUT</button>
-                    </form>
+                    <button name="orders" class="orders-btn" onclick="window.location.href='orders.php'">Orders</button>
+                    <button name="logout" class="logout-btn" onclick="window.location.href='logout.php'">Logout</button>
                 <?php }
                     else{ ?>
                         <button name="login" class="login-btn" onclick="window.location.href='login.php'">Login</button>
-                        <button name="register" class="register-btn" action="register1.php">Register</button>
+                        <button name="register" class="register-btn" onclick="window.location.href='register1.php'">Register</button>
                 <?php } ?>
             </div>
         </section>
+
         <section id="home">
             <div class="slider">
                 <div class="slide-show-container">

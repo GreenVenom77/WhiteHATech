@@ -348,21 +348,10 @@ form .btn:hover{
     color: #ffffff;
     font-size: 17px;
 }
-.logout-btn{
-    background: #433bd4;
-    width: 13rem;
-    height: 40px;
-    padding: 5px 5px;
-    cursor: pointer;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    margin: 0 auto;
-    margin-top: 1rem;
-}
+.logout-btn,
 .login-btn,
-.register-btn
+.register-btn,
+.orders-btn
 {
     background: #433bd4;
     width: 13rem;
