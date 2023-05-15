@@ -2,9 +2,6 @@
 
     include "conn.php";
     $user_id = $_SESSION['user_id'];
-    if(!isset($user_id)){
-        header('location:login.php');
-    }
 
     /*_--------adding product to wishlist-----------_*/
     if(isset($_POST['add_to_wishlist'])){
@@ -61,9 +58,9 @@
             <div>
                 <ul id="navbar">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="shop.php">Products</a></li>
-                    <li><a href="About.php">About</a></li>
-                    <li><a href="Contact.php">Contact</a></li>
+                    <li><a class="active" href="shop.php">Products</a></li>
+                    <li><a href="about.php">About</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
             <div class="icons">

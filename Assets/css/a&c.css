@@ -6,7 +6,7 @@
     width: 50%;
 }
 #about_us div{
-    color:#1a1a1a;
+    color:#000;
     padding-left: 50px;
 }
 #about-app{
@@ -22,51 +22,52 @@
     height: 100%;
     border-radius: 20px;
 }
-#contant-details img {
+#contact-details img {
     width: 55%;
     height: 400px;
 }
-#contant-details {
+#contact-details {
     display: flex;
     align-items: center;
     justify-content:space-between;
 }
-#contant-details.detils{
+#contact-details.details{
     width: 40%;
 }
-#contant-details span{
-    font-size: 12px;
+#contact-details h1{
     color: #000;
 }
-#contant-details h2{
+#contact-details h2{
     font-size: 26px;
     line-height: 35px;
     padding: 20px;
+    color: #000;
 }
-#contant-details h3{
+#contact-details h3{
     font-size: 16px;
-    color:#1a1a1a;
+    color:#000;
     padding-bottom: 15px;
 }
-#contant-details li{
+#contact-details li{
     list-style: none;
     display: flex;
     padding: 10px 0;
 }
-#contant-details li i{
+#contact-details li i{
     font-size: 14px;
     padding-right: 22px;
 }
-#contant-details li p{
+#contact-details li p{
     margin: 0;
-    font-size: 14px;
+    font-size: 18px;
+    color: #000;
 }
 #form-details{
     display: flex;
     justify-content: space-between;
     margin: 30px;
     padding: 88px;
-    border: 1px solid #e1e1e1;
+    border: 1px solid #000;
 }
 #form-details form{
     width: 65%;
@@ -89,10 +90,10 @@
     padding: 12px 15px;
     outline: none;
     margin-bottom: 20px;
-    border: 1px solid #e1e1e1;
+    border: 1px solid #000;
 }
-#form-details form button {
-    background-color:aqua;
+#form-details form input {
+    background-color:#083DA6;
     color: #fff;
 }
 #form-details .people div{

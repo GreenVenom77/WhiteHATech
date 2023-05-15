@@ -3,6 +3,42 @@
 
     $user_id = $_SESSION['user_id'];
 
+    if(isset($_POST['add_to_wishlist'])){
+        $product_id=$_POST['product_id'];
+        $product_name=$_POST['product_name'];
+        $product_price=$_POST['product_price'];
+        $product_image=$_POST['product_image'];
+
+        $wishlist_number=pg_query($con,"SELECT * FROM wishlist where pid='$product_id' and u_id='$user_id';") or die ('query failed');
+        $cart_number=pg_query($con,"SELECT * FROM invoice_details where invoice_num =last_invoice() AND u_id= '$user_id';") or die ('query failed');
+        if(pg_num_rows($wishlist_number)>0){
+            echo "product already exist in wishlist";
+        }else if(pg_num_rows($cart_number)>0){
+            echo "product already exist in cart";
+    }else{
+        pg_query($con,"INSERT INTO wishlist(u_id, pid)	VALUES ( '$user_id', '$product_id');");
+        echo "product successfuly added to wishlist";
+    }
+    }
+     /*---------------add to cart--------*/
+     if(isset($_POST['add_to_cart'])){
+        $product_id=$_POST['product_id'];
+        $product_name=$_POST['product_name'];
+        $product_price=$_POST['product_price'];
+        $product_image=$_POST['product_image'];
+        $qty=$_POST['qty'];
+
+        $cart_number=pg_query($con,"SELECT * FROM invoice_details where product_id ='$product_id' AND u_id= '$user_id';") or die ('query failed');
+         if(pg_num_rows($cart_number)>0){
+            echo "product already exist in cart";
+    }else{
+        pg_query($con,"INSERT INTO invoice_details(invoice_num, product_id, qty, unit_price,  u_id)
+        VALUES (last_invoice(), '$product_id','$qty', $product_price, '$user_id');");
+        echo "product successfuly added to cart";
+    }
+    }
+    echo "<div style='background-color:blue;color:white;'></div>";
+
     if(isset($_GET['delete']))
     {
         $delete_id = $_GET['delete'];
@@ -18,25 +54,41 @@
         <meta http-equiv="x-UA-compatible" content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Assets/font/css/all.css">
-        <link rel="stylesheet" href="Assets/css/style.css">
+        <link rel="stylesheet" href="Assets/css/w&c.css">
         <link rel="stylesheet" href="Assets/css/orders.css">
         <title>WhiteHaTech Store</title>
     </head>
 
     <body>
         
-        <section id="header">
+        <nav id="header">
             <a href="#"><img src="Assets/imgs/logow2.png" class="logo" alt=""></a>
 
             <div>
                 <ul id="navbar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Product.html">Product</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="Contact.html">Contact</a></li>
-                    <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></i></a></li>
-                    <li><i class="fa-solid fa-user" id="user-btn"></i></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="shop.php">Products</a></li>
+                    <li><a href="about.php">About</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
+            </div>
+            <div class="icons">
+            <i class="fa-solid fa-user" id="user-btn"></i>
+            <?php 
+                if(isset($user_id)){
+                    $s_w=pg_query($con,"SELECT * FROM wishlist where u_id = '$user_id';") or die ('query failed');
+                    $w_n_r=pg_num_rows($s_w);
+                }
+            ?>
+            <a href="wishlist.php"><i class="fa-solid fa-heart"></i><span>(<?php echo $w_n_r;?>)</span></a>
+            <?php 
+                if(isset($user_id)){
+                    $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num =5;") or die ('query failed');
+                    $c_n_r=pg_num_rows($s_c);
+                }
+            ?>
+    
+            <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i><span>(<?php echo $c_n_r;?>)</span></a>
             </div>
             <div class="user-box">
                 <?php if(isset($_SESSION['email']) && isset($_SESSION['user_name'])){ ?>
@@ -50,7 +102,7 @@
                         <button name="register" class="register-btn" onclick="window.location.href='register1.php'">Register</button>
                 <?php } ?>
             </div>
-        </section>
+        </nav>
                  
         <section class = "order-container">
             <h1 class = "title">Total placed orders</h1>

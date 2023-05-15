@@ -41,8 +41,8 @@
                 <ul id="navbar">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="shop.php">Products</a></li>
-                    <li><a href="About.php">About</a></li>
-                    <li><a href="Contact.php">Contact</a></li>
+                    <li><a href="about.php">About</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
             <div class="icons">
@@ -110,20 +110,21 @@
                     }
                 }else{
                     echo '<img src = "Assets/imgs/empty.webp"<div style="
-                    width:100%;
-                    margin left:-7px;
+                    width:50%;
+                    margin left:0px;
                     position:relative">
                     ';
                 }
                 ?>
             </div>
-            <div class="dlt">
-                <a href="cart.php?delete_all" class="btn2">Delete all</a>
-            </div>
+            
             <div class="wishlist_total">
                 <h1>total amount payable : <span>$<?php echo $grand_total ?></span></h1><br><br>
                 <a href="shop.php" class="btn2">continue shopping</a>
                 <a href="checkout.php" class="btn2 <?php echo ($grand_total>1)?'':'disabled'?>" onclick="return confirm('do you want to delete all from wishlist')">proceed to check out</a>
+                <div class="dlt">
+                    <a href="cart.php?delete_all" class="btn2">Delete all</a>
+                </div>
             </div>
 
         </section>

@@ -60,7 +60,7 @@
                 echo 
                 "
                     <script>
-                        alert('the OTP has been sent to your E-Mail');
+                        alert('The OTP has been sent to your E-Mail');
                         document.location.href = 'otp_verify.php';
                     </script>
                 ";

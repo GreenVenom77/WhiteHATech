@@ -76,7 +76,7 @@
                             <option value = "completed">completed</option>
                         </select>
                         <input type = "submit" name = "update_order" value = "update order" class = "btn">
-                        <a href = "orders.php?delete=<?php echo $fetch_orders['id']; ?>" class = "delete" onclick="return confirm('delete this')">Delete</a>
+                        <a href = "orders.php?delete=<?php echo $fetch_orders['id']; ?>" class = "delete" onclick="return confirm('Delete this?')">Delete</a>
                     </form>
                 </div>
                 <?php 

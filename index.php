@@ -55,15 +55,15 @@
     </head>
 
     <body>
-    <nav id="header">
+        <nav id="header">
             <a href="#"><img src="Assets/imgs/logow2.png" class="logo" alt=""></a>
 
             <div>
                 <ul id="navbar">
-                    <li><a href="index.php">Home</a></li>
+                    <li><a class="active" href="index.php">Home</a></li>
                     <li><a href="shop.php">Products</a></li>
-                    <li><a href="About.php">About</a></li>
-                    <li><a href="Contact.php">Contact</a></li>
+                    <li><a href="about.php">About</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
             <div class="icons">
