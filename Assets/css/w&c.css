@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    padding: 0px;
+    padding: 1px;
     box-sizing: border-box;
     font-family: 'sparten',sans-serif;
 }
@@ -11,11 +11,21 @@ h1 {
     color: #222;
 }
 
+h2 {
+    font-size: 46px;
+    line-height: 54px;
+    color: #222;
+} 
+
 h4 {
     font-size: 20px;
     color: #222;
 }
 
+h6 {
+    font-weight: 700;
+    font-size: 12px;
+}
 p{
     font-size: 16px;
     color: #fff;
@@ -310,15 +320,11 @@ footer .copyright{
     display: block;
 }
 .user-box span{
-    text-transform: none;
+    text-transform: capitalize;
     color: #ffffff;
     font-size: 14px;
 }
-.logout-btn,
-.login-btn,
-.register-btn,
-.orders-btn
-{
+.logout-btn{
     background: #433bd4;
     width: 13rem;
     height: 40px;
@@ -362,34 +368,18 @@ footer .copyright{
     margin: 2rem 0;
     color: #0A3DAB;
 }
-#home .box-container{
-    padding: 2% 8%;
-    display: flex;
-    grid-template-columns: repeat(auto-fit,minmax(18rem,1fr));
-    justify-content: center;
-    align-items: center;
-}
-#home .box-container .box{
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
-    padding:1rem 0;
-    background: rgba(255, 255, 255, 0.40);
-    border: 2px solid rgba(255, 255, 255, 0.40) ;
-    margin: 1rem;
-    text-align: center;
-    border-radius: 5px;
-}
-.shop .box-container{
+.box-container{
     padding: 2% 8%;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(18rem,1fr));
     justify-content: center;
     align-items: center;
 }
-.shop .box-container .box{
+.box-container .box{
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
-    padding:1rem 0;
-    background: rgba(255, 255, 255, 0.40);
-    border: 2px solid rgba(255, 255, 255, 0.40);
+padding:1rem 0 ;   
+ background: rgba(255, 255, 255, 0.40);
+    border: 2px solid rgba(255, 255, 255, 0.40) ;
     margin: 1rem;
     text-align: center;
     border-radius: 5px;
@@ -433,7 +423,7 @@ form .btn:hover{
     color: #F4672C;
 }
 .add-product, .show-products , .update-container{
-    background-image: url('../imgs/banner5.png');
+    background-image: url('image/banner5.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -503,7 +493,7 @@ form .btn:hover{
     height: 100%;
     width: 100%;
     overflow-y: auto;
-    background-image: url(../imgs/banner5.png);
+    background-image: url(image/banner5.png);
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 1100;
@@ -819,6 +809,11 @@ form .btn:hover{
     font-size: 18px;
     margin-right: 2rem;
 }
+.dlt a{
+    text-transform: capitalize;
+    font-size: 18px;
+    margin-right: 2rem;
+}
 .dlt .btn2{
     background: #fff;
     padding: 5px 30px;
@@ -826,7 +821,7 @@ form .btn:hover{
     color: #000;
     border: none;
     text-decoration: none;
-    margin-left: auto;
+    margin-left: 630px;
 }
 .dlt  .btn2:hover{
     background: #fff;
@@ -848,4 +843,52 @@ form .btn:hover{
     background: #fe5c02;
     box-shadow: none;
     color: #fff;
+}
+
+.display-order{
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1); 
+    width: 50vw;
+    margin: 1rem auto;
+    text-align: center;
+    line-height: 2;
+}
+
+.display-order span{
+    display: inline-block;
+    background: #ececec;
+    padding: .4rem;
+    margin: .5rem auto;
+    border-radius: 3px;
+    text-transform: capitalize;
+}
+.display-order .grand-total{
+    width: 90%;
+    background: #fe5c02;
+    color: #fff;
+    cursor: pointer;
+}
+
+.checkout-form form{
+    width: 50vw;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+}
+.checkout-form form select{
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 0 30px 0 15px;
+    width: 100%;
+    font-size: 20px;
+    color: white;
+    -moz-appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0!important;
+    background-color: #2873ff;
+    background-image: none;
+}
+.input-field label{
+    margin: .6rem 0;
 }
