@@ -33,8 +33,7 @@ if(isset($_GET['delete'])){
     $fetch_delete_image = pg_fetch_assoc($select_delete_image);
     unlink('image/'.$fetch_delete_image['image']);
 
-    pg_query($con,"DELETE FROM product WHERE  product_id ='$delete_id';") or  die('queury failed');
-    pg_query($con,"DELETE FROM invoice_details WHERE  product_id ='$delete_id';") or  die('queury failed');
+    pg_query($con,"DELETE FROM product WHERE  product_id ='$delete_id' cascade;") or  die('queury failed');
    /* pg_query($con,"DELETE FROM product WHERE  product_id ='$delete_id';") or  die('queury failed'); */
    header("location:admin_products.php");
 }
@@ -146,7 +145,7 @@ if(isset($_POST['update_product'])){
         <section class="show-products">
             <div class="box-container">
                 <?php
-                $select_products = pg_query($con,"SELECT * FROM product;") or die('query failed');
+                $select_products = pg_query($con,"select * from product order by product_id desc") or die('query failed');
                 if(pg_num_rows($select_products) > 0){
                     while($fetch_products = pg_fetch_assoc($select_products)){
 
@@ -157,7 +156,7 @@ if(isset($_POST['update_product'])){
                         <h4><?php echo $fetch_products['product_name']; ?></h4>
                         <p class="detail"><?php echo $fetch_products['description']; ?></p>
                         <a href="admin_products.php?edit=<?php echo $fetch_products['product_id'] ?>" class="edit">edit</a>
-                        <a href="admin_products.php?delete=<?php echo $fetch_products['product_id'] ?>" class="delete" onclick="return conform('delete this product');">delete</a>
+                        <a href="admin_products.php?delete=<?php echo $fetch_products['product_id'] ?>" class="delete" onclick="return conform('Delete this product');">delete</a>
                     </div>
                     <?php 
                     }

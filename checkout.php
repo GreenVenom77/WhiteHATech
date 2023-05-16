@@ -1,7 +1,8 @@
 <?php
 
     include "conn.php";
-    $user_id = $_SESSION['u_id'];
+    $user_id = $_SESSION['user_id'];
+    
     if(!isset($user_id)){
         header('location:login.php');
     }
@@ -26,51 +27,35 @@
         <meta charset="UTF-8">
         <meta http-equiv="x-UA-compatible" content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../font/css/all.css">
-        <link rel="stylesheet" href="w&c.css">
-        <link rel="stylesheet" href="home.css">
+        <link rel="stylesheet" href="Assets/font/css/all.css">
+        <link rel="stylesheet" href="Assets/css/w&c.css">
         <title>WhiteHaTech Store</title>
     </head>
 
     <body>
         <nav id="header">
-            <a href="#"><img src="image/logow2.png" class="logo" alt=""></a>
+            <a href="#"><img src="Assets/imgs/logow2.png" class="logo" alt=""></a>
 
             <div>
                 <ul id="navbar">
-                    <li><a class="active" href="index.php">Home</a></li>
-                    <li><a href="Product.html">Product</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="shop.php">Products</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
             <div class="icons">
-            <i class="fa-solid fa-user" id="user-btn"></i>
-            <?php 
-            
-            $s_w=pg_query($con,"SELECT * FROM wishlist where u_id = '$user_id';") or die ('query failed');
-            $w_n_r=pg_num_rows($s_w);
-            ?>
-            <a href="wishlist.php"><i class="fa-solid fa-heart"></i><span>(<?php echo $w_n_r;?>)</span></a>
-            <?php 
-            
-            $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num=last_invoice() AND u_id= '$user_id' ;") or die ('query failed');
-            $c_n_r=pg_num_rows($s_c);
-            ?>
-    
-    <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i><span>(<?php echo $c_n_r;?>)</span></a>
+                <i class="fa-solid fa-user" id="user-btn"></i>
             </div>
             <div class="user-box">
-                <?php if(isset($_SESSION['password']) && isset($_SESSION['user_name'])){ ?>
+                <?php if(isset($_SESSION['email']) && isset($_SESSION['user_name'])){ ?>
                     <p>Username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
                     <p>Email: <span><?php echo $_SESSION['email']; ?></span></p>
-                    <form method="post" action="logout.php" class="logout">
-                        <button name="logout" class="logout-btn">LOG OUT</button>
-                    </form>
+                    <button name="orders" class="orders-btn" onclick="window.location.href='orders.php'">Orders</button>
+                    <button name="logout" class="logout-btn" onclick="window.location.href='logout.php'">Logout</button>
                 <?php }
                     else{ ?>
                         <button name="login" class="login-btn" onclick="window.location.href='login.php'">Login</button>
-                        <button name="register" class="register-btn" action="register1.php">Register</button>
+                        <button name="register" class="register-btn" onclick="window.location.href='register1.php'">Register</button>
                 <?php } ?>
             </div>
         </nav>
@@ -117,7 +102,7 @@
                 </select>
                 </div>
                 <div class="input-field">
-                <label>Flate :</label>
+                <label>Flat :</label>
                 <input type="text" name="flate" placeholder="e.g flate no.">
                 </div>
                 <div class="input-field">
@@ -125,7 +110,7 @@
                 <input type="text" name="street" placeholder="e.g street">
                 </div>
                 <div class="input-field">
-                <label>city :</label>
+                <label>City :</label>
                 <input type="text" name="city" placeholder="e.g suez">
                 </div>
                 <input type="submit" name="order_btn" class="btn" value="order now">
@@ -155,25 +140,14 @@
             </div>
             <div class="col">
                 <h4>My Account</h4>
-                <a href="#">Sign In</a>
                 <a href="#">View Cart</a>
                 <a href="#">My Wishlist</a>
                 <a href="#">Help</a>
-            </div>
-            <div class="col install">
-                <h4>install App</h4>
-                <p>Form App Store or Google Play</p>
-                <div class="row">
-                    <a href="http://facebook.com"><img src="image/app.jpg" alt=""></a>
-                    <img src="image/play.jpg" alt="">
-                </div>
-                <p>Secured Payment Gateways </p>
-                <img src="Assets/imgs/pay.png" alt="">
             </div>
             <div class="copyright">
                 <p>© 2023, WhiteHaTech - Computer Store</p>
             </div>
         </footer >
-        <script src="script.js"></script>
+        <script src="Assets/js/script.js"></script>
     </body>
 </html>

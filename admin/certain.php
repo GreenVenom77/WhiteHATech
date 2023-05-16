@@ -18,7 +18,7 @@ include "../conn.php";
     <a href="#"><img src="image/logow2.png" class="logo" alt=""></a>
             <div>
                 <ul id="navbar">
-                    <li><a class="active" href="adminHome.php">Home</a></li>
+                    <li><a href="adminHome.php">Home</a></li>
                     <li><a href="admin_products.php">Product</a></li>
                     <li><a href="admin_users.php">Users</a></li>
                     <li><a href="orders.php">Orders</a></li>
@@ -34,7 +34,7 @@ include "../conn.php";
             <div class="user-box">
                 <p>username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
                 <p>email: <span><?php echo $_SESSION['password']; ?></span></p>
-                <form method="post" action="user/logout.php" class="logout">
+                <form method="post" action="../logout.php" class="logout">
                     <button name="logout" class="logout-btn">LOG OUT</button>
                 </form>
             </div>

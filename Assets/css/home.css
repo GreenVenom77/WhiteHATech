@@ -2,11 +2,12 @@
     width: 100%;
     height: 100%;
     position: relative;
+    margin-bottom: 50px;
 }
 
 .wrapper1,
 .wrapper2,
-.wrapper3 
+.wrapper3
 {
     background-color: #eee;
     background-size: cover;
@@ -21,27 +22,17 @@
 
 .wrapper1
 {
-    background-image: url(../imgs/Background.png);
+    background-image: url(../imgs/banner6.webp);
 }
 .wrapper2
 {
-    background-image: url(../imgs/header.jpg);
+    background-image: url(../imgs/rx.jpg);
     animation: slideTwoAnim 20s infinite;
 }
 .wrapper3
 {
-    background-image: url(../imgs/online.jpg);
+    background-image: url(../imgs/rtx30.jpg);
     animation: slideThreeAnim 20s infinite;
-}
-.wrapper-text
-{
-    font: 700 40px/1.4 Roboto;
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 @keyframes slideTwoAnim {
@@ -87,15 +78,30 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
-.row .card
+.row
 {
-    background: url(../imgs/Shelfs.jpg)no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
     height: 400px;
     position: relative;
     margin-bottom: 1rem;
+}
+.card1
+{
+    background: url(../imgs/intel.jpg)no-repeat;
+}
+.card2
+{
+    background: url(../imgs/ryzen.jpg)no-repeat;
+}
+.card3
+{
+    background: url(../imgs/motherboard.jpg)no-repeat;
+}
+.card4
+{
+    background: url(../imgs/pc.jpg)no-repeat;
 }
 .row .card .details
 {
@@ -147,6 +153,8 @@
     background-color: transparent;
     box-shadow: none;
     cursor: pointer;
+    text-decoration: none;
+
 }
 .categories .box-container .box:hover
 {
@@ -161,9 +169,13 @@
     border-radius: 50%;
     border: 2px solid orange;
 }
-.categories .box-container .box span
+.categories .box-container a .box span
 {
     text-transform: uppercase;
+}
+.categories .box-container a
+{
+    text-decoration: none;
 }
 .banner3
 {

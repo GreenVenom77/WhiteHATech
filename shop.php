@@ -59,7 +59,6 @@
                 <ul id="navbar">
                     <li><a href="index.php">Home</a></li>
                     <li><a class="active" href="shop.php">Products</a></li>
-                    <li><a href="about.php">About</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
@@ -95,10 +94,10 @@
         
         <section class="show-products">
         <div class="shop">
-            <h1 class="title">shop best sellers</h1>
+            <h1 class="title">Products</h1>
             <div class="box-container">
                 <?php
-                $select_products = pg_query($con,"SELECT * FROM product;") or die('query failed');
+                $select_products = pg_query($con,"select * from product order by product_id desc") or die('query failed');
                 if(pg_num_rows($select_products) > 0){
                     while($fetch_products = pg_fetch_assoc($select_products)){
 

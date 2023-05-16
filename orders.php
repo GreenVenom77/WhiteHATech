@@ -42,7 +42,7 @@
     if(isset($_GET['delete']))
     {
         $delete_id = $_GET['delete'];
-        pg_query($con, "DELETE FROM orders WHERE id = '$delete_id'") or die('query failed');
+        pg_query($con, "DELETE FROM invoice WHERE invoice_date = '$delete_id'") or die('query failed');
         header('location:orders.php');
     }
 
@@ -68,7 +68,6 @@
                 <ul id="navbar">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="shop.php">Products</a></li>
-                    <li><a href="about.php">About</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
@@ -83,7 +82,7 @@
             <a href="wishlist.php"><i class="fa-solid fa-heart"></i><span>(<?php echo $w_n_r;?>)</span></a>
             <?php 
                 if(isset($user_id)){
-                    $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num =5;") or die ('query failed');
+                    $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num=last_invoice() AND u_id= '$user_id'") or die ('query failed');
                     $c_n_r=pg_num_rows($s_c);
                 }
             ?>
@@ -108,7 +107,7 @@
             <h1 class = "title">Total placed orders</h1>
             <div class = "box-container">
                 <?php
-                    $sql1 = "SELECT * FROM orders WHERE user_id = '$user_id'";
+                    $sql1 = "SELECT distinct  invoice_date,user_name, total,email,method,address,number,u_id FROM invoice inner JOIN invoice_details ON invoice_details.invoice_num = invoice.invoice_num where u_id='$user_id'";
                     $select_orders = pg_query($con, $sql1) or die('query failed');
                     if(pg_num_rows($select_orders) > 0)
                     {
@@ -116,17 +115,16 @@
                         {
                 ?>
                 <div class = "box">
-                    <p>User Name: <span><?php echo $fetch_orders['name']; ?></span></p> 
-                    <p>Email: <span><?php echo $fetch_orders['email']; ?></span></label> </p>
-                    <p>Number: <span><?php echo $fetch_orders['number']; ?></span></label> </p>
-                    <p>Address: <span><?php echo $fetch_orders['address']; ?></span></label> </p>
-                    <p>Placed On: <span><?php echo $fetch_orders['placed_on']; ?></span> </p>
-                    <p>Method: <span><?php echo $fetch_orders['method']; ?></span></label> </p>
-                    <p>Total Products: <span><?php echo $fetch_orders['total_products']; ?></span></p>
-                    <p>Total Price: $<span><?php echo $fetch_orders['total_price']; ?></span></label> </p>
+                    <p>User Name: <span><?php echo $fetch_orders['user_name']; ?></span></p> 
+                    <p>Email: <span><?php echo $fetch_orders['email']; ?></span></p>
+                    <p>Number: <span><?php echo $fetch_orders['number']; ?></span></p>
+                    <p>Address: <span><?php echo $fetch_orders['address']; ?></span></p>
+                    <p>Placed On: <span><?php echo $fetch_orders['invoice_date']; ?></span></p>
+                    <p>Method: <span><?php echo $fetch_orders['method']; ?></span></p>
+                    <p>Total Price: $<span><?php echo $fetch_orders['total']; ?></span></p>
                     <form methos = "post">
-                        <input type="hidden" name="order_id" value = "<?php $fetch_orders['id'] ?>">
-                        <a href = "orders.php?delete=<?php echo $fetch_orders['id']; ?>" class = "delete" onclick="return confirm('Delete the order?')">Delete</a>
+                        <input type="hidden" name="order_id" value = "<?php $fetch_orders['invoice_date'] ?>">
+                        <a href = "orders.php?delete=<?php echo $fetch_orders['invoice_date']; ?>" class = "delete" onclick="return confirm('Delete the order?')">Delete</a>
                     </form>
                 </div>
                 <?php 

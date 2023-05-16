@@ -80,7 +80,6 @@
                 <ul id="navbar">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="shop.php">Products</a></li>
-                    <li><a href="about.php">About</a></li>
                     <li><a class="active" href="contact.php">Contact</a></li>
                 </ul>
             </div>
@@ -95,7 +94,7 @@
             <a href="wishlist.php"><i class="fa-solid fa-heart"></i><span>(<?php echo $w_n_r;?>)</span></a>
             <?php 
                 if(isset($user_id)){
-                    $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num =5;") or die ('query failed');
+                    $s_c=pg_query($con,"SELECT * FROM invoice_details where u_id= '$user_id' AND invoice_num=last_invoice();") or die ('query failed');
                     $c_n_r=pg_num_rows($s_c);
                 }
             ?>

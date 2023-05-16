@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    padding: 1px;
+    padding: 0px;
     box-sizing: border-box;
     font-family: 'sparten',sans-serif;
 }
@@ -324,7 +324,11 @@ footer .copyright{
     color: #ffffff;
     font-size: 14px;
 }
-.logout-btn{
+.logout-btn,
+.login-btn,
+.register-btn,
+.orders-btn
+{
     background: #433bd4;
     width: 13rem;
     height: 40px;
@@ -422,8 +426,8 @@ form .btn:hover{
     border: 2px solid pink;
     color: #F4672C;
 }
-.add-product, .show-products , .update-container{
-    background-image: url('image/banner5.png');
+.add-product, .update-container{
+    background-image: url('../imgs/banner5.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -625,7 +629,7 @@ form .btn:hover{
     position: relative;
 }
 .show-products .shop .title{
-    color: #fff;
+    color: #2873ff;
 }
 .price{
     font-size: 18px;
@@ -821,7 +825,7 @@ form .btn:hover{
     color: #000;
     border: none;
     text-decoration: none;
-    margin-left: 630px;
+    margin-left: 0px;
 }
 .dlt  .btn2:hover{
     background: #fff;

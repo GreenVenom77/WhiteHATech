@@ -16,7 +16,7 @@
      /*---------delete products from wishlist-----*/
      if(isset($_GET['delete_all'])){
         $delete_p=$_GET['delete_all'];
-        pg_query($con,"delete FROM invoice_details where u_id='$user_id';") or die ('query failed');
+        pg_query($con,"delete FROM invoice_details where u_id='$user_id' AND invoice_num = last_invoice();") or die ('query failed');
         header('location:cart.php');
     }
     echo "<div style='background-color:blue;color:white;'></div>";
@@ -41,7 +41,6 @@
                 <ul id="navbar">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="shop.php">Products</a></li>
-                    <li><a href="about.php">About</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
@@ -110,8 +109,8 @@
                     }
                 }else{
                     echo '<img src = "Assets/imgs/empty.webp"<div style="
-                    width:50%;
-                    margin left:0px;
+                    width:80%;
+                    margin left:250px;
                     position:relative">
                     ';
                 }
@@ -121,9 +120,9 @@
             <div class="wishlist_total">
                 <h1>total amount payable : <span>$<?php echo $grand_total ?></span></h1><br><br>
                 <a href="shop.php" class="btn2">continue shopping</a>
-                <a href="checkout.php" class="btn2 <?php echo ($grand_total>1)?'':'disabled'?>" onclick="return confirm('do you want to delete all from wishlist')">proceed to check out</a>
+                <a href="checkout.php" class="btn2 <?php echo ($grand_total>1)?'':'disabled'?>">proceed to check out</a>
                 <div class="dlt">
-                    <a href="cart.php?delete_all" class="btn2">Delete all</a>
+                    <a href="cart.php?delete_all" class="btn2" onclick="return confirm('Do you want to delete all from cart')">Delete all</a>
                 </div>
             </div>
 

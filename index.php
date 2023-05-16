@@ -62,7 +62,6 @@
                 <ul id="navbar">
                     <li><a class="active" href="index.php">Home</a></li>
                     <li><a href="shop.php">Products</a></li>
-                    <li><a href="about.php">About</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
@@ -103,50 +102,16 @@
             <div class="slider">
                 <div class="slide-show-container">
                     <div class = "wrapper1">
-                        <div class = "wrapper-text">
-                            inspired by goods
-                        </div>
+
                     </div>
                     <div class="wrapper2">
-                        <div class = "wrapper-text">
-                            inspired by power
-                        </div>
+                        
                     </div>
                     <div class="wrapper3">
-                        <div class = "wrapper-text">
-                            inspired by home
-                        </div>
+                        
                     </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class = "card">
-                    <div class = "details">
-                        <span>GCards</span>
-                        <h1>GTX 1050ti</h1>
-                        <a href="#">Cart</a>
-                    </div>
-                </div>
-                <div class = "card">
-                    <div class = "details">
-                        <span>GCards</span>
-                        <h1>GTX 1050</h1>
-                        <a href="#">Cart</a>
-                    </div>
-                </div>
-                <div class = "card">
-                    <div class = "details">
-                        <span>GCards</span>
-                        <h1>GT 1030</h1>
-                        <a href="#">Cart</a>
-                    </div>
-                </div>
-                <div class = "card">
-                    <div class = "details">
-                        <span>GCards</span>
-                        <h1>GT 1030</h1>
-                        <a href="#">Cart</a>
+                    <div class="wrapper4">
+                        
                     </div>
                 </div>
             </div>
@@ -154,22 +119,18 @@
             <div class="categories">
                 <h1 class="title">Categories</h1>
                 <div class="box-container">
-                    <div class = "box">
-                        <img src="Assets/imgs/">
-                        <span>Category1</span>
-                    </div>
-                    <div class = "box">
-                        <img src="Assets/imgs/">
-                        <span>Category2</span>
-                    </div>
-                    <div class = "box">
-                        <img src="Assets/imgs/">
-                        <span>Category3</span>
-                    </div>
-                    <div class = "box">
-                        <img src="Assets/imgs/">
-                        <span>Category4</span>
-                    </div>
+                    <a href= "shop.php"><div class = "box">
+                        <img src="Assets/imgs/accessories.jpg">
+                        <span>Accessories</span>
+                    </div></a>
+                    <a href= "shop.php"><div class = "box">
+                        <img src="Assets/imgs/pccomp.jpg">
+                        <span>Components</span>
+                    </div></a>
+                    <a href= "shop.php"><div class = "box">
+                        <img src="Assets/imgs/router.jpg">
+                        <span>Networks</span>
+                    </div></a>
                 </div>
             </div>
 
@@ -178,7 +139,7 @@
                     <span>All pc parts</span>
                     <h1>Components</h1>
                     <p>Order and we deliver</p>
-                    <a href ="user_products.php">Explore<i class="bi bi-arrow-right"></i></a>
+                    <a href ="shop.php">Explore<i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -188,7 +149,7 @@
                     <h1 class="title">shop best sellers</h1>
                     <div class="box-container">
                         <?php
-                        $select_products = pg_query($con,"SELECT * FROM product;") or die('query failed');
+                        $select_products = pg_query($con,"select * from product order by product_id desc limit 5") or die('query failed');
                         if(pg_num_rows($select_products) > 0){
                             while($fetch_products = pg_fetch_assoc($select_products)){
 
