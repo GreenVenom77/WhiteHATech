@@ -82,6 +82,8 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="shop.php">Products</a></li>
                     <li><a class="active" href="contact.php">Contact</a></li>
+                    <li><form method="post" action="certain_user.php"><input type="text" placeholder="Search..." name="search">
+                    <button type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button></form></li>
                 </ul>
             </div>
             <div class="icons">

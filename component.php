@@ -101,6 +101,8 @@
                     <li class="active"><a href="component.php">Component</a></li>
                     <li ><a href="accessories.php">Accessories</a></li>
                     <li><a href="network.php">Networks</a></li>
+                    <li><form method="post" action="certain_user.php"><input type="text" placeholder="Search..." name="search">
+                    <button type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button></form></li>
                 </ul>
                 <div class="filter-condition">
                     <span>Sort</span>

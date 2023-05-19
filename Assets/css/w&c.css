@@ -690,7 +690,7 @@ form .btn:hover{
 
 .show-products .shop .more a{
     margin-bottom: -.6rem;
-    color: white;
+    color: #000;
     text-transform: capitalize;
 }
 .show-products .shop .more a:hover{
@@ -959,5 +959,30 @@ header ul li.active a{
     font-weight: bold;
     color: purple;
     background: transparent;
+    cursor: pointer;
+}
+#navbar li .searchform{
+    float: right;
+    
+}
+input[type=text]{
+    padding: 6px;
+    margin-top: 6px;
+    font-size: 16px;
+    border-radius: 3%;
+    border: none;
+    margin-left: 2px;
+}
+#navbar li button{
+    float: right;
+    padding: 9px 11px;
+    margin: 0.5px;
+    margin-top: -41px;
+    margin-right: -37px;
+    background: #000;
+    color: #000;
+    font-size: 15.5px;
+    border: none;
+    border-radius: 12%;
     cursor: pointer;
 }

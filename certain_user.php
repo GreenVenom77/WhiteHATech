@@ -1,6 +1,7 @@
 <?php
 
     include "conn.php";
+
     $user_id = $_SESSION['user_id'];
 
     /*_--------adding product to wishlist-----------_*/
@@ -13,28 +14,29 @@
         $wishlist_number=pg_query($con,"SELECT * FROM wishlist where pid='$product_id' and u_id='$user_id';") or die ('query failed');
         $cart_number=pg_query($con,"SELECT * FROM invoice_details where invoice_num =last_invoice() AND u_id= '$user_id';") or die ('query failed');
         if(pg_num_rows($wishlist_number)>0){
-            header('location:shop.php');
+            echo "product already exist in wishlist";
+        }else if(pg_num_rows($cart_number)>0){
+            echo "product already exist in cart";
     }else{
         pg_query($con,"INSERT INTO wishlist(u_id, pid)	VALUES ( '$user_id', '$product_id');");
-        header('location:shop.php');
+        echo "product successfuly added to wishlist";
     }
     }
-
-    /*---------------add to cart--------*/
-    if(isset($_POST['add_to_cart'])){
+     /*---------------add to cart--------*/
+     if(isset($_POST['add_to_cart'])){
         $product_id=$_POST['product_id'];
         $product_name=$_POST['product_name'];
         $product_price=$_POST['product_price'];
         $product_image=$_POST['product_image'];
         $qty=$_POST['qty'];
 
-        $cart_number=pg_query($con,"SELECT * FROM invoice_details where product_id='$product_id' and u_id= '$user_id' ANd invoice_num =last_invoice();") or die ('query failed');
+        $cart_number=pg_query($con,"SELECT * FROM invoice_details where product_id ='$product_id' AND u_id= '$user_id';") or die ('query failed');
          if(pg_num_rows($cart_number)>0){
-            header('location:shop.php');
+            echo "product already exist in cart";
     }else{
         pg_query($con,"INSERT INTO invoice_details(invoice_num, product_id, qty, unit_price,  u_id)
         VALUES (last_invoice(), '$product_id','$qty', $product_price, '$user_id');");
-        header('location:shop.php');
+        echo "product successfuly added to cart";
     }
     }
     echo "<div style='background-color:blue;color:white;'></div>";
@@ -48,6 +50,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Assets/font/css/all.css">
         <link rel="stylesheet" href="Assets/css/w&c.css">
+        <link rel="stylesheet" href="Assets/css/home.css">
         <title>WhiteHATech Store</title>
         <link rel="icon" type="image/x-icon" href="Assets/imgs/logo2.ico">
     </head>
@@ -58,31 +61,34 @@
 
             <div>
                 <ul id="navbar">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a class="active" href="shop.php">Products</a></li>
+                    <li><a class="active" href="index.php">Home</a></li>
+                    <li><a href="shop.php">Products</a></li>
                     <li><a href="contact.php">Contact</a></li>
                     <li><form method="post" action="certain_user.php"><input type="text" placeholder="Search..." name="search">
                     <button type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button></form></li>
+                </form></li>
                 </ul>
             </div>
             <div class="icons">
-            <i class="fa-solid fa-user" id="user-btn"></i>
-            <?php 
-                if(isset($user_id)){
-                    $s_w=pg_query($con,"SELECT * FROM wishlist where u_id = '$user_id';") or die ('query failed');
-                    $w_n_r=pg_num_rows($s_w);
-                }
-            ?>
-            <a href="wishlist.php"><i class="fa-solid fa-heart"></i><span>(<?php echo $w_n_r;?>)</span></a>
-            <?php 
-                if(isset($user_id)){
-                    $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num=last_invoice() AND u_id= '$user_id'") or die ('query failed');
-                    $c_n_r=pg_num_rows($s_c);
-                }
-            ?>
-    
-            <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i><span>(<?php echo $c_n_r;?>)</span></a>
+                <i class="fa-solid fa-user" id="user-btn"></i>
+                <?php 
+                    if(isset($user_id)){
+                        $s_w=pg_query($con,"SELECT * FROM wishlist where u_id = '$user_id';") or die ('query failed');
+                        $w_n_r=pg_num_rows($s_w);
+                    }
+                ?>
+                <a href="wishlist.php"><i class="fa-solid fa-heart"></i><span>(<?php echo $w_n_r;?>)</span></a>
+                <?php 
+                    if(isset($user_id)){
+                        $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num=last_invoice() AND u_id= '$user_id'") or die ('query failed');
+
+                        $c_n_r=pg_num_rows($s_c);
+                    }
+                ?>
+        
+                <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i><span>(<?php echo $c_n_r;?>)</span></a>
             </div>
+            
             <div class="user-box">
                 <?php if(isset($_SESSION['email']) && isset($_SESSION['user_name'])){ ?>
                     <p>Username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
@@ -96,58 +102,43 @@
                 <?php } ?>
             </div>
         </nav>
-        <main>
-            <header>
-                <ul class="indicator">
-                    <li class="active"><a href="shop.php">All</a></li>
-                    <li ><a href="component.php">Component</a></li>
-                    <li><a href="accessories.php">Accessories</a></li>
-                    <li><a href="network.php">Networks</a></li>
-                </ul>
-                <div class="filter-condition">
-                    <span>Sort</span>
-                    <select name="" id="select">
-                        <option value="Default">Default</option>
-                        <option value="LowToHigh">Low To High</option>
-                        <option value="HighToLow">High To Low</option>
-                    </select>
-                </div>
-            </header>
-        </main>
-        
+
         <section class="show-products">
-        <div class="shop">
-            <h1 class="title">Products</h1>
-            <div class="box-container">
-                <?php
-                $select_products = pg_query($con,"select * from product order by product_id desc") or die('query failed');
-                if(pg_num_rows($select_products) > 0){
-                    while($fetch_products = pg_fetch_assoc($select_products)){
+            <div class="shop">
+                    <h1 class="title">Products</h1>
+                    <div class="box-container">
+                        <?php
+                         $str=$_POST["search"];
+                        $select_products = pg_query($con,"SELECT * FROM product where product_name like '%$str%' ") or die('query failed');
+                        if(pg_num_rows($select_products) > 0){
+                            while($fetch_products = pg_fetch_assoc($select_products)){
 
-                    ?>
-                     <form action="" method="post" class="box" id="product-box">
-                <img src="admin/image/<?php echo $fetch_products['image']; ?>"><br>
-                <div class="price">$<?php echo $fetch_products['price']; ?></div>
-                <div class="name"><?php echo $fetch_products['product_name']; ?></div>
-                <input type="hidden" name="product_id" value="<?php echo $fetch_products['product_id']; ?>">
-                <input type="hidden" name="product_name" value="<?php echo $fetch_products['product_name']; ?>">
-                <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
-                <input type="hidden" name="qty" value="1" min="0">
-                <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
-                <div class="icon">
-                    <a href="view_page.php?pid=<?php echo $fetch_products['product_id']; ?>" class="bi bi-eye-fill"><i class="fa-solid fa-eye"></i></a>
-                    <button type="submit" name="add_to_wishlist" class="bi bi-wishlist"><i class="fa-solid fa-heart"></i></button>
-                    <button type="submit" name="add_to_cart" class="bi bi-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                            ?>
+                            <form action="" method="post" class="box" id="product-box">
+                                <img src="admin/image/<?php echo $fetch_products['image']; ?>"><br>
+                                <div class="price">$<?php echo $fetch_products['price']; ?></div>
+                                <div class="name"><?php echo $fetch_products['product_name']; ?></div>
+                                <input type="hidden" name="product_id" value="<?php echo $fetch_products['product_id']; ?>">
+                                <input type="hidden" name="product_name" value="<?php echo $fetch_products['product_name']; ?>">
+                                <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
+                                <input type="hidden" name="qty" value="1" min="0">
+                                <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
+                                <div class="icon">
+                                    <a href="view_page.php?pid=<?php echo $fetch_products['product_id']; ?>" class="bi bi-eye-fill"><i class="fa-solid fa-eye"></i></a>
+                                    <button type="submit" name="add_to_wishlist" class="bi bi-wishlist"><i class="fa-solid fa-heart"></i></button>
+                                    <button type="submit" name="add_to_cart" class="bi bi-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                                </div>
+                            </form>
+                            <?php 
+                            }
+                        }else{
+                            echo '<p class="empty">no product added yet!</p>';
+                        }
+                        ?>
+                    </div>
+                    <i class="fa-solid fa-arrow-down"></i>
                 </div>
-            </form>
-                    <?php 
-                    }
-                }else{
-                    echo '<p class="empty">no product added yet!</p>';
-                }
-                ?>
             </div>
-
         </section>
 
         <footer id= "foo" class="section-p1">

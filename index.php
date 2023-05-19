@@ -64,6 +64,8 @@
                     <li><a class="active" href="index.php">Home</a></li>
                     <li><a href="shop.php">Products</a></li>
                     <li><a href="contact.php">Contact</a></li>
+                    <li><form method="post" action="certain_user.php"><input type="text" placeholder="Search..." name="search">
+                    <button type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button></form></li>
                 </ul>
             </div>
             <div class="icons">
@@ -151,7 +153,7 @@
                     <h1 class="title">shop best sellers</h1>
                     <div class="box-container">
                         <?php
-                        $select_products = pg_query($con,"select * from product order by product_id desc limit 5") or die('query failed');
+                        $select_products = pg_query($con,"select * from product order by product_id desc limit 3") or die('query failed');
                         if(pg_num_rows($select_products) > 0){
                             while($fetch_products = pg_fetch_assoc($select_products)){
 
@@ -179,8 +181,7 @@
                         ?>
                     </div>
                 <div class="more">
-                    <a href="shop.php">Load More</a>
-                    <i class="fa-solid fa-arrow-down"></i>
+                    <a href="shop.php" class="btn2">Load More</a>
                 </div>
             </div>
         </section>
