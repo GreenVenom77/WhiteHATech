@@ -33,7 +33,7 @@ if(isset($_GET['delete'])){
     $fetch_delete_image = pg_fetch_assoc($select_delete_image);
     unlink('image/'.$fetch_delete_image['image']);
 
-    pg_query($con,"DELETE FROM product WHERE  product_id ='$delete_id' cascade;") or  die('queury failed');
+    pg_query($con,"DELETE FROM product WHERE  product_id ='$delete_id';") or  die('queury failed');
    /* pg_query($con,"DELETE FROM product WHERE  product_id ='$delete_id';") or  die('queury failed'); */
    header("location:admin_products.php");
 }
@@ -208,7 +208,7 @@ if(isset($_POST['update_product'])){
                 </div>
                 <div class="input-field">
                     <label>Product Details</label>
-                    <textarea name="update_detail" id= "detail" value="<?php echo $fetch_edit['description']; ?>" required></textarea>
+                    <textarea name="update_detail" id= "detail" required><?php echo $fetch_edit['description']; ?></textarea>
                 </div>
                 <div class="input-field">
                     <label>Product Image</label>
