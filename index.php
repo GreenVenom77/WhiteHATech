@@ -121,15 +121,15 @@
             <div class="categories">
                 <h1 class="title">Categories</h1>
                 <div class="box-container">
-                    <a href= "shop.php"><div class = "box">
+                    <a href= "accessories.php"><div class = "box">
                         <img src="Assets/imgs/accessories.jpg">
                         <span>Accessories</span>
                     </div></a>
-                    <a href= "shop.php"><div class = "box">
+                    <a href= "component.php"><div class = "box">
                         <img src="Assets/imgs/pccomp.jpg">
                         <span>Components</span>
                     </div></a>
-                    <a href= "shop.php"><div class = "box">
+                    <a href= "network.php"><div class = "box">
                         <img src="Assets/imgs/router.jpg">
                         <span>Networks</span>
                     </div></a>

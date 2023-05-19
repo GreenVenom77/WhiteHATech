@@ -19,7 +19,17 @@ function myfuc(){
     document.getElementById("detail").value=null;
 }
 
-const closeBtn= document.querySelector('#close-edit');
-closeBtn.addEventListener('click',()=>{
-    document.querySelector('.update-container').style.display='none';
-})
+
+let heading= document.querySelectorAll(".indicator li");
+let contaner= document.querySelector(".box-container");
+heading.forEach((li) => {
+    li.addEventListener("click",removeactive);
+});
+
+function removeactive(){
+    heading.forEach((li) => {
+        li.classList.remove("active");
+        this.classList.add("active");
+    }
+    );
+}

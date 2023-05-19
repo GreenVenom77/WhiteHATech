@@ -97,9 +97,9 @@
         <main>
             <header>
                 <ul class="indicator">
-                    <li class="active"><a href="shop.php">All</a></li>
-                    <li ><a href="component.php">Component</a></li>
-                    <li><a href="accessories.php">Accessories</a></li>
+                    <li><a href="shop.php">All</a></li>
+                    <li class="active"><a href="component.php">Component</a></li>
+                    <li ><a href="accessories.php">Accessories</a></li>
                     <li><a href="network.php">Networks</a></li>
                 </ul>
                 <div class="filter-condition">
@@ -118,7 +118,7 @@
             <h1 class="title">Products</h1>
             <div class="box-container">
                 <?php
-                $select_products = pg_query($con,"select * from product order by product_id desc") or die('query failed');
+                $select_products = pg_query($con,"select * from product where category_id=2  order by product_id desc ") or die('query failed');
                 if(pg_num_rows($select_products) > 0){
                     while($fetch_products = pg_fetch_assoc($select_products)){
 
