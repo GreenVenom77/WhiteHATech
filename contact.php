@@ -69,7 +69,8 @@
         <link rel="stylesheet" href="Assets/font/css/all.css">
         <link rel="stylesheet" href="Assets/css/w&c.css">
         <link rel="stylesheet" href="Assets/css/a&c.css">
-        <title>WhiteHaTech Store</title>
+        <title>WhiteHATech Store</title>
+        <link rel="icon" type="image/x-icon" href="Assets/imgs/logo2.ico">
     </head>
 
     <body>
@@ -246,16 +247,16 @@
                 <h4>About</h4>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms & conditions</a>
-                <a href="#">Contact Us</a>
+                <a href="contact.php">Contact Us</a>
             </div>
             <div class="col">
                 <h4>My Account</h4>
-                <a href="#">View Cart</a>
-                <a href="#">My Wishlist</a>
-                <a href="#">Help</a>
+                <a href="cart.php">View Cart</a>
+                <a href="wishlist.php">My Wishlist</a>
+                <a href="contact.php">Help</a>
             </div>
             <div class="copyright">
-                <p>© 2023, WhiteHaTech - Computer Store</p>
+                <p>© 2023, WhiteHATech - Computer Store</p>
             </div>
         </footer >
         <script src="Assets/js/script.js"></script>

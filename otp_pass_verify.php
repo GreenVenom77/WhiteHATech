@@ -47,7 +47,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Verify</title>
+        <title>WhiteHATech</title>
+        <link rel="icon" type="image/x-icon" href="Assets/imgs/logo2.ico">
         <link rel="stylesheet" type="text/css" href="Assets/css/lr.css">
     </head>
     <body>

@@ -2,9 +2,6 @@
 
     include "conn.php";
     $user_id = $_SESSION['user_id'];
-    if(!isset($user_id)){
-        header('location:login.php');
-    }
 
     /*_--------adding product to wishlist-----------_*/
     if(isset($_POST['add_to_wishlist'])){
@@ -53,7 +50,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Assets/font/css/all.css">
         <link rel="stylesheet" href="Assets/css/w&c.css">
-        <title>WhiteHaTech Store</title>
+        <title>WhiteHATech Store</title>
+        <link rel="icon" type="image/x-icon" href="Assets/imgs/logo2.ico">
     </head>
 
     <body>
@@ -70,15 +68,17 @@
             <div class="icons">
             <i class="fa-solid fa-user" id="user-btn"></i>
             <?php 
-            
-            $s_w=pg_query($con,"SELECT * FROM wishlist where u_id = '$user_id';") or die ('query failed');
-            $w_n_r=pg_num_rows($s_w);
+                if(isset($user_id)){
+                    $s_w=pg_query($con,"SELECT * FROM wishlist where u_id = '$user_id';") or die ('query failed');
+                    $w_n_r=pg_num_rows($s_w);
+                }
             ?>
             <a href="wishlist.php"><i class="fa-solid fa-heart"></i><span>(<?php echo $w_n_r;?>)</span></a>
             <?php 
-            
-            $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num=last_invoice() AND u_id= '$user_id'") or die ('query failed');
-            $c_n_r=pg_num_rows($s_c);
+                if(isset($user_id)){
+                    $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num=last_invoice() AND u_id= '$user_id'") or die ('query failed');
+                    $c_n_r=pg_num_rows($s_c);
+                }
             ?>
     
             <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i><span>(<?php echo $c_n_r;?>)</span></a>
@@ -111,19 +111,19 @@
                      <form action="" method="post" class="box">
                 <img src="admin/image/<?php echo $fetch_product['image']; ?>"><br>
                 <div class="detail">
-                <div class="price">$<?php echo $fetch_product['price']; ?></div>
                 <div class="name"><?php echo $fetch_product['product_name']; ?></div>
-                <div class="detail"><?php echo $fetch_product['description']; ?></div>
+                <div class="price">$<?php echo $fetch_product['price']; ?></div>
                 <input type="hidden" name="product_id" value="<?php echo $fetch_product['product_id']; ?>">
                 <input type="hidden" name="product_name" value="<?php echo $fetch_product['product_name']; ?>">
                 <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
                 <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
                 <div class="icon">
+                    <input type="number" name="product_quantity" value="1" min="0" class="quantity"><br>
                     <button type="submit" name="add_to_wishlist" class="bi bi-wishlist"><i class="fa-solid fa-heart"></i></button>
-                    <input type="number" name="product_quantity" value="1" min="0" class="quantity">
                     <button type="submit" name="add_to_cart" class="bi bi-cart"><i class="fa-solid fa-cart-shopping"></i></button>
                 </div>
-            </form>
+                <br><div class="description"><?php echo $fetch_product['description']; ?></div>
+                </form>
                    <?php
                         }
                     }
@@ -131,6 +131,7 @@
                 ?>
             </div>
         </section>
+
         <footer id= "foo" class="section-p1">
             <div class="col">
                 <img src="Assets/imgs/logo2.png" alt="">
@@ -150,16 +151,16 @@
                 <h4>About</h4>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms & conditions</a>
-                <a href="#">Contact Us</a>
+                <a href="contact.php">Contact Us</a>
             </div>
             <div class="col">
                 <h4>My Account</h4>
-                <a href="#">View Cart</a>
-                <a href="#">My Wishlist</a>
-                <a href="#">Help</a>
+                <a href="cart.php">View Cart</a>
+                <a href="wishlist.php">My Wishlist</a>
+                <a href="contact.php">Help</a>
             </div>
             <div class="copyright">
-                <p>© 2023, WhiteHaTech - Computer Store</p>
+                <p>© 2023, WhiteHATech - Computer Store</p>
             </div>
         </footer >
         <script src="Assets/js/script.js"></script>

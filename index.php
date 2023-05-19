@@ -51,7 +51,8 @@
         <link rel="stylesheet" href="Assets/font/css/all.css">
         <link rel="stylesheet" href="Assets/css/w&c.css">
         <link rel="stylesheet" href="Assets/css/home.css">
-        <title>WhiteHaTech Store</title>
+        <title>WhiteHATech Store</title>
+        <link rel="icon" type="image/x-icon" href="Assets/imgs/logo2.ico">
     </head>
 
     <body>
@@ -66,24 +67,25 @@
                 </ul>
             </div>
             <div class="icons">
-            <i class="fa-solid fa-user" id="user-btn"></i>
-            <?php 
-                if(isset($user_id)){
-                    $s_w=pg_query($con,"SELECT * FROM wishlist where u_id = '$user_id';") or die ('query failed');
-                    $w_n_r=pg_num_rows($s_w);
-                }
-            ?>
-            <a href="wishlist.php"><i class="fa-solid fa-heart"></i><span>(<?php echo $w_n_r;?>)</span></a>
-            <?php 
-                if(isset($user_id)){
-                    $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num=last_invoice() AND u_id= '$user_id'") or die ('query failed');
+                <i class="fa-solid fa-user" id="user-btn"></i>
+                <?php 
+                    if(isset($user_id)){
+                        $s_w=pg_query($con,"SELECT * FROM wishlist where u_id = '$user_id';") or die ('query failed');
+                        $w_n_r=pg_num_rows($s_w);
+                    }
+                ?>
+                <a href="wishlist.php"><i class="fa-solid fa-heart"></i><span>(<?php echo $w_n_r;?>)</span></a>
+                <?php 
+                    if(isset($user_id)){
+                        $s_c=pg_query($con,"SELECT * FROM invoice_details where invoice_num=last_invoice() AND u_id= '$user_id'") or die ('query failed');
 
-                    $c_n_r=pg_num_rows($s_c);
-                }
-            ?>
-    
-            <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i><span>(<?php echo $c_n_r;?>)</span></a>
+                        $c_n_r=pg_num_rows($s_c);
+                    }
+                ?>
+        
+                <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i><span>(<?php echo $c_n_r;?>)</span></a>
             </div>
+            
             <div class="user-box">
                 <?php if(isset($_SESSION['email']) && isset($_SESSION['user_name'])){ ?>
                     <p>Username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
@@ -154,7 +156,7 @@
                             while($fetch_products = pg_fetch_assoc($select_products)){
 
                             ?>
-                            <form action="" method="post" class="box">
+                            <form action="" method="post" class="box" id="product-box">
                                 <img src="admin/image/<?php echo $fetch_products['image']; ?>"><br>
                                 <div class="price">$<?php echo $fetch_products['price']; ?></div>
                                 <div class="name"><?php echo $fetch_products['product_name']; ?></div>
@@ -202,16 +204,16 @@
                 <h4>About</h4>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms & conditions</a>
-                <a href="#">Contact Us</a>
+                <a href="contact.php">Contact Us</a>
             </div>
             <div class="col">
                 <h4>My Account</h4>
-                <a href="#">View Cart</a>
-                <a href="#">My Wishlist</a>
-                <a href="#">Help</a>
+                <a href="cart.php">View Cart</a>
+                <a href="wishlist.php">My Wishlist</a>
+                <a href="contact.php">Help</a>
             </div>
             <div class="copyright">
-                <p>© 2023, WhiteHaTech - Computer Store</p>
+                <p>© 2023, WhiteHATech - Computer Store</p>
             </div>
         </footer >
         <script src="Assets/js/script.js"></script>
