@@ -37,5 +37,10 @@ function removeactive(){
 const selectElement = document.querySelector('#select');
 
 selectElement.addEventListener('change', (event) => {
-  event.target.form.submit();
+    localStorage.setItem('selectedOption', event.target.value);
+    event.target.form.submit();
 });
+
+if (localStorage.getItem('selectedOption')) {
+    selectElement.value = localStorage.getItem('selectedOption');
+}
