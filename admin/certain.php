@@ -43,7 +43,8 @@ include "../conn.php";
      <div class="box-container">
          <?php
          $str=$_POST["search"];
-         $select_products = pg_query($con,"SELECT * FROM product where product_name like '%$str%';") or die('query failed');
+         $select_products = pg_query($con,"SELECT * FROM product where product_name like LOWER('%$str%');") or die('query failed');
+         $select_products = pg_query($con,"SELECT * FROM product where product_name like UPPER('%$str%');") or die('query failed');
          if(pg_num_rows($select_products) > 0){
              while($fetch_products = pg_fetch_assoc($select_products)){
 
