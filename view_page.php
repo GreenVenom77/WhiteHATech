@@ -35,14 +35,14 @@
         $product_name=$_POST['product_name'];
         $product_price=$_POST['product_price'];
         $product_image=$_POST['product_image'];
-        $product_qty=$_POST['qty'];
+        $product_qty=$_POST['product_quantity'];
 
         if(isset($user_id)){
             $cart_number=pg_query($con,"SELECT * FROM invoice_details where product_id='$product_id' and u_id= '$user_id' AND invoice_num =last_invoice();") or die ('query failed');
             if(pg_num_rows($cart_number)>0){
                 header('location:view_page.php?pid='.$product_id);
             }else{
-                pg_query($con,"INSERT INTO invoice_details(invoice_num, product_id, qty, unit_price, u_id) VALUES (last_invoice(), '$product_id', '$product_qty', $product_price, '$user_id');") or die ('query failed');
+                pg_query($con,"INSERT INTO invoice_details(invoice_num, product_id, qty, unit_price, u_id) VALUES (last_invoice(), '$product_id', $product_qty, $product_price, '$user_id');") or die ('query failed');
                 header('location:view_page.php?pid='.$product_id);
             }
         }
@@ -75,6 +75,7 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="shop.php">Products</a></li>
                     <li><a href="contact.php">Contact</a></li>
+                    <li><a href="about.php">About</a></li>
                 </ul>
             </div>
             <div class="icons">

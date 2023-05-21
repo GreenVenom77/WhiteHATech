@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="font/css/all.css">
         <link rel="stylesheet" href="style.css">
         <title>WhiteHaTech Store</title>
+        <link rel="icon" type="image/x-icon" href="image/logo2.ico">
     </head>
 
     <body>
