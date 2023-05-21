@@ -17,6 +17,7 @@
         pg_query($con,"INSERT INTO invoice( net_total, user_name, email, method, address, number)
         VALUES ( 12, '$name', '$email', '$method', 'address', '$number');")  or die('failed');
         pg_query($con,"insert into invoice_details (invoice_num) values(last_invoice()+1)");
+        header('location:cart.php');
     }
     echo "<div style='background-color:blue;color:white;'></div>";
 ?>
