@@ -150,7 +150,7 @@
         <section id="about-app" class="section-p1">
             <h2>Demo About Our <a href="index.php" style="text-decoration: none; color: #3f37c9;">Website</a></h2>
             <div class="video">
-                <video autoplay muted loop src="2.mp4"></video>
+                <video autoplay loop src="Videos_&_PPT/WhiteHATech Trailer.mp4"></video>
             </div>
         </section>
 
