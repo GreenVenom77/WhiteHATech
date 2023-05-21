@@ -32,7 +32,6 @@
             </div>
             <div class="user-box">
                 <p>Username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
-                <p>Password: <span><?php echo $_SESSION['password']; ?></span></p>
                 <form method="post" action="../logout.php" class="logout">
                     <button name="logout" class="logout-btn">LOG OUT</button>
                 </form>

@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'sparten',sans-serif;
+    text-decoration: none;
 }
 
 h1 {
@@ -326,9 +327,12 @@ footer .copyright{
     display: block;
 }
 .user-box span{
-    text-transform: capitalize;
+    text-transform: none;
     color: #ffffff;
     font-size: 14px;
+}
+.user-box p{
+    text-transform: none;
 }
 .logout-btn{
     background: #433bd4;

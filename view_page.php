@@ -10,16 +10,23 @@
         $product_price=$_POST['product_price'];
         $product_image=$_POST['product_image'];
 
-        $wishlist_number=pg_query($con,"SELECT * FROM wishlist where pid='$product_id' and u_id='$user_id';") or die ('query failed');
-        $cart_number=pg_query($con,"SELECT * FROM invoice_details where product_id='$product_id' and u_id= '$user_id' ANd invoice_num =last_invoice();") or die ('query failed');
-        if(pg_num_rows($wishlist_number)>0){
-            header('location:view_page.php');
-        }else if(pg_num_rows($cart_number)>0){
-            header('location:view_page.php');
-    }else{
-        pg_query($con,"INSERT INTO wishlist(u_id, pid)	VALUES ( '$user_id', '$product_id');");
-        header('location:view_page.php');
-    }
+        if(isset($user_id))
+        {
+            $wishlist_number=pg_query($con,"SELECT * FROM wishlist where pid='$product_id' and u_id='$user_id';") or die ('query failed');
+            $cart_number=pg_query($con,"SELECT * FROM invoice_details where product_id='$product_id' and u_id= '$user_id' ANd invoice_num =last_invoice();") or die ('query failed');
+            if(pg_num_rows($wishlist_number)>0){
+                header('location:view_page.php');
+            }else if(pg_num_rows($cart_number)>0){
+                header('location:view_page.php');
+            }else{
+                pg_query($con,"INSERT INTO wishlist(u_id, pid)	VALUES ( '$user_id', '$product_id');");
+                header('location:view_page.php');
+            }
+        }
+        else
+        {
+            header('location:login.php');
+        }
     }
 
     /*---------------add to cart--------*/
@@ -30,14 +37,20 @@
         $product_image=$_POST['product_image'];
         $product_qty=$_POST['qty'];
 
-        $cart_number=pg_query($con,"SELECT * FROM invoice_details where product_id='$product_id' and u_id= '$user_id' ANd invoice_num =last_invoice();") or die ('query failed');
-         if(pg_num_rows($cart_number)>0){
-            header('location:view_page.php');
-    }else{
-        pg_query($con,"INSERT INTO invoice_details(invoice_num, product_id, qty, unit_price,  u_id)
-        VALUES (last_invoice(), '$product_id','$product_qty', $product_price, '$user_id');");
-        header('location:view_page.php');
-    }
+        if(isset($user_id)){
+            $cart_number=pg_query($con,"SELECT * FROM invoice_details where product_id='$product_id' and u_id= '$user_id' ANd invoice_num =last_invoice();") or die ('query failed');
+            if(pg_num_rows($cart_number)>0){
+                header('location:view_page.php');
+            }else{
+                pg_query($con,"INSERT INTO invoice_details(invoice_num, product_id, qty, unit_price,  u_id)
+                VALUES (last_invoice(), '$product_id','$product_qty', $product_price, '$user_id');");
+                header('location:view_page.php');
+            }
+        }
+        else
+        {
+            header('location:login.php');
+        }
     }
     echo "<div style='background-color:blue;color:white;'></div>";
 ?>

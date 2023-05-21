@@ -48,17 +48,32 @@ if(isset($_POST['update_product'])){
     $update_brand = $_POST['update_brand'];
     $update_type = $_POST['update_type'];
     $update_detail = $_POST['update_detail'];
-    $update_image = $_FILES['update_image']['name'];
-    $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
-    $update_img_folder = 'image/'.$update_image;
-    $update_query=pg_query($con,"UPDATE product set product_id='$update_p_id', category_id='$update_category', product_name='$update_p_name', unit='$update_units', price='$update_price', brand='$update_brand', type='$update_type', description='$update_detail', image='$update_image' WHERE product_id='$update_p_id';") or die('query failed');
-    if($update_query){
-        move_uploaded_file($update_image_tmp_name,$update_img_folder);
-        echo "product updated successfully";
-        header('location: admin_products.php');
-    }else{
-        echo "failed";
+    if(empty($_FILES['update_image']['name']))
+    {
+        $update_query=pg_query($con,"UPDATE product set product_id='$update_p_id', category_id='$update_category', product_name='$update_p_name', unit='$update_units', price='$update_price', brand='$update_brand', type='$update_type', description='$update_detail' WHERE product_id='$update_p_id';") or die('query failed');
+        if($update_query){
+            echo "product updated successfully";
+            header('location: admin_products.php');
+        }else{
+            echo "failed";
+        }
     }
+    else
+    {
+        $update_image = $_FILES['update_image']['name'];
+        $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
+        $update_img_folder = 'image/'.$update_image;
+
+        $update_query=pg_query($con,"UPDATE product set product_id='$update_p_id', category_id='$update_category', product_name='$update_p_name', unit='$update_units', price='$update_price', brand='$update_brand', type='$update_type', description='$update_detail', image='$update_image' WHERE product_id='$update_p_id';") or die('query failed');
+        if($update_query){
+            move_uploaded_file($update_image_tmp_name,$update_img_folder);
+            echo "product updated successfully";
+            header('location: admin_products.php');
+        }else{
+            echo "failed";
+        }
+    }
+    
 }
 ?>
 
@@ -93,8 +108,7 @@ if(isset($_POST['update_product'])){
                 </ul>
             </div>
             <div class="user-box">
-                <p>username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
-                <p>email: <span><?php echo $_SESSION['password']; ?></span></p>
+                <p>Username: <span><?Php echo $_SESSION['user_name']; ?></span></p>
                 <form method="post" action="../logout.php" class="logout">
                     <button name="logout" class="logout-btn">LOG OUT</button>
                 </form>
@@ -110,8 +124,17 @@ if(isset($_POST['update_product'])){
                 <div class="input-field">
                     <label>Category</label>
                     <select name="category" id="select">
-                        <option value="2">devices</option>
-                        <option value="3">accessories</option>
+                        <?php
+                            $select_categories = pg_query($con,"select * from category order by category_id ASC") or die('query failed');
+                            if(pg_num_rows($select_categories) > 0){
+                                while($fetch_categories = pg_fetch_assoc($select_categories)){
+
+                        ?>
+                                    <option value="<?php echo $fetch_categories['category_id']; ?>"><?php echo $fetch_categories['category_name']; ?></option>
+                        <?php 
+                                }
+                            }
+                        ?>
                     </select>
                 </div>
                 <div class="input-field">
@@ -145,7 +168,7 @@ if(isset($_POST['update_product'])){
         <section class="show-products">
             <div class="box-container">
                 <?php
-                $select_products = pg_query($con,"select * from product order by product_id desc") or die('query failed');
+                $select_products = pg_query($con,"select * from product order by product_name desc") or die('query failed');
                 if(pg_num_rows($select_products) > 0){
                     while($fetch_products = pg_fetch_assoc($select_products)){
 
@@ -180,14 +203,23 @@ if(isset($_POST['update_product'])){
                             <img src="image/<?php echo $fetch_edit['image']; ?>">
                             <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['product_id']; ?>">
                             <div class="input-field">
-                           <label>Product Name</label>
-                           <input type="text" id= "name" name="update_p_name" value="<?php echo $fetch_edit['product_name']; ?>" required>
-                           </div>
-                           <div class="input-field">
+                            <label>Product Name</label>
+                            <input type="text" id= "name" name="update_p_name" value="<?php echo $fetch_edit['product_name']; ?>" required>
+                            </div>
+                            <div class="input-field">
                     <label>Category</label>
-                    <select name="update_category" id="select" value="<?php echo $fetch_edit['category_id']; ?>">
-                        <option value="2">devices</option>
-                        <option value="3">accessories</option>
+                    <select name="update_category" id="select">
+                        <?php
+                            $select_categories = pg_query($con,"select * from category order by category_name ASC") or die('query failed');
+                            if(pg_num_rows($select_categories) > 0){
+                                while($fetch_categories = pg_fetch_assoc($select_categories)){
+
+                        ?>
+                                    <option value="<?php echo $fetch_categories['category_id']; ?>"><?php echo $fetch_categories['category_name']; ?></option>
+                        <?php 
+                                }
+                            }
+                        ?>
                     </select>
                 </div>
                 <div class="input-field">
@@ -212,10 +244,10 @@ if(isset($_POST['update_product'])){
                 </div>
                 <div class="input-field">
                     <label>Product Image</label>
-                    <input type="file" name="update_image" accept="image/jpg , image/png, image/jpeg, image/webp" required >
+                    <input type="file" name="update_image" accept="image/jpg , image/png, image/jpeg, image/webp" value="">
                 </div>
                             <input type="submit" name="update_product" value="update" class="edit">
-                            <input type="reset" value="cancle" class="option-btn btn" id="close-edit">
+                            <input type="reset" value="cancel" class="option-btn btn" id="close-edit">
                         </form>
                         <?php
                     }

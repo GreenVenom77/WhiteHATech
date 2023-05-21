@@ -33,3 +33,9 @@ function removeactive(){
     }
     );
 }
+
+const selectElement = document.querySelector('#select');
+
+selectElement.addEventListener('change', (event) => {
+  event.target.form.submit();
+});
