@@ -4,7 +4,7 @@
     if(isset($_GET['delete']))
     {
         $delete_id = $_GET['delete'];
-        pg_query($con, "DELETE FROM orders WHERE id = '$delete_id'") or die('query failed');
+        pg_query($con, "DELETE FROM invoice WHERE invoice_num = '$delete_id'") or die('query failed');
         header('location:orders.php');
     }
 
@@ -51,32 +51,41 @@
             <h1 class = "title">Total placed orders</h1>
             <div class = "box-container">
                 <?php
-                    $sql1 = "SELECT * FROM orders;";
+                    $sql1 = "select * from invoice ;";
                     $select_orders = pg_query($con, $sql1) or die('query failed');
+                    $p_n_=pg_num_rows($select_orders);
                     if(pg_num_rows($select_orders) > 0)
                     {
                         while($fetch_orders = pg_fetch_assoc($select_orders))
                         {
+                            $mn=$fetch_orders['invoice_num'];
+                            $select_order=pg_query($con,"SELECT invoice_num,u_id FROM invoice_details where invoice_num ='$mn' and u_id is not null ");
+                            $p_n=pg_num_rows($select_order);
+                            $fet=pg_fetch_assoc($select_order);
+                            $select_pd=pg_query($con,"SELECT * FROM invoice_details inner join product on invoice_details.product_id=product.product_id where invoice_num ='$mn' and u_id is not null ;");
+                            $fett=pg_fetch_assoc($select_pd);
                 ?>
                 <div class = "box">
-                    <p>User ID: <span><?php echo $fetch_orders['user_id']; ?></span></p>
-                    <p>User Name: <span><?php echo $fetch_orders['name']; ?></span></p> 
+                    <p>User ID: <span><?php echo $fet['u_id']; ?></span></p>
+                    <p>User Name: <span><?php echo $fetch_orders['user_name']; ?></span></p> 
                     <p>Email: <span><?php echo $fetch_orders['email']; ?></span></label> </p>
                     <p>Number: <span><?php echo $fetch_orders['number']; ?></span></label> </p>
                     <p>Address: <span><?php echo $fetch_orders['address']; ?></span></label> </p>
-                    <p>Placed On: <span><?php echo $fetch_orders['placed_on']; ?></span> </p>
+                    <p>Placed On: <span><?php echo $fetch_orders['invoice_date']; ?></span> </p>
                     <p>Method: <span><?php echo $fetch_orders['method']; ?></span></label> </p>
-                    <p>Total Products: <span><?php echo $fetch_orders['total_products']; ?></span></p>
-                    <p>Total Price: $<span><?php echo $fetch_orders['total_price']; ?></span></label> </p>
+                    <p>Total Products: <span><?php echo $p_n; ?></span></p>
+                    <p>Products Details: <span><?php if(pg_num_rows($select_pd) > 0){
+                                while($fetch_pd = pg_fetch_assoc($select_pd)){ echo $fetch_pd['product_name']."<br>"; } } ?> </span></p>
+                    <p>Total Price: $<span><?php echo $fetch_orders['total']; ?></span></label> </p>
                     <form methos = "post">
-                        <input type="hidden" name="order_id" value = "<?php $fetch_orders['id'] ?>">
+                        <input type="hidden" name="order_id" value = "<?php $fetch_orders['invoice_num'] ?>">
                         <select name = "update_payment">
                             <option disabled selected><?php echo $fetch_orders['payment_status']; ?></option>
                             <option value = "pending">Pending</option>
                             <option value = "completed">completed</option>
                         </select>
                         <input type = "submit" name = "update_order" value = "update order" class = "btn">
-                        <a href = "orders.php?delete=<?php echo $fetch_orders['id']; ?>" class = "delete" onclick="return confirm('Delete this?')">Delete</a>
+                        <a href = "orders.php?delete=<?php echo $fetch_orders['invoice_num']; ?>" class = "delete" onclick="return confirm('Delete this?')">Delete</a>
                     </form>
                 </div>
                 <?php 
