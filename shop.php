@@ -123,7 +123,7 @@
             <header>
                 <ul class="indicator">
                     <li <?php if(!isset($_GET['category'])) echo 'class="active"'; ?>><a href="shop.php">All</a></li>
-                    <li <?php if($_GET['category'] == '2') echo 'class="active"'; ?>><a href="shop.php?category=2">Component</a></li>
+                    <li <?php if($_GET['category'] == '2') echo 'class="active"'; ?>><a href="shop.php?category=2">Components</a></li>
                     <li <?php if($_GET['category'] == '3') echo 'class="active"'; ?>><a href="shop.php?category=3">Accessories</a></li>
                     <li <?php if($_GET['category'] == '4') echo 'class="active"'; ?>><a href="shop.php?category=4">Networks</a></li>
                     <li <?php if($_GET['category'] == '1') echo 'class="active"'; ?>><a href="shop.php?category=1">PC/Laptops</a></li>
