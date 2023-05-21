@@ -45,10 +45,10 @@
                 <div class="box">
                     <?php
                     $total_pendings = 0;
-                    $select_pendings = pg_query($con,"SELECT * FROM orders where payment_status = 'pending'")
+                    $select_pendings = pg_query($con,"SELECT * FROM invoice where payment_status = 'pending'")
                     or die('queury failed');
                     while($fetch_pendings = pg_fetch_assoc($select_pendings)){
-                        $total_pendings += $fetch_pendings['total_price'];
+                        $total_pendings += $fetch_pendings['total'];
                     }
                     ?>
                     <h3>$ <?php echo $total_pendings; ?></h3>
