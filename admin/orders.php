@@ -8,6 +8,13 @@
         header('location:orders.php');
     }
 
+    if(isset($_POST['update_order'])){
+        $update_o_s = $_POST['update_payment'];
+        $update_o_id = $_POST['order_id'];
+        pg_query($con, "UPDATE invoice SET payment_status='$update_o_s' WHERE invoice_num='$update_o_id';") or die('query failed');
+        echo $update_o_id;
+        echo $update_o_s;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,8 +84,8 @@
                     <p>Products Details: <span><?php if(pg_num_rows($select_pd) > 0){
                                 while($fetch_pd = pg_fetch_assoc($select_pd)){ echo $fetch_pd['product_name']."<br>"; } } ?> </span></p>
                     <p>Total Price: $<span><?php echo $fetch_orders['total']; ?></span></label> </p>
-                    <form methos = "post">
-                        <input type="hidden" name="order_id" value = "<?php $fetch_orders['invoice_num'] ?>">
+                    <form method = "post">
+                        <input type="hidden" name="order_id" value = "<?php echo $fetch_orders['invoice_num'] ;?>">
                         <select name = "update_payment">
                             <option disabled selected><?php echo $fetch_orders['payment_status']; ?></option>
                             <option value = "pending">Pending</option>
