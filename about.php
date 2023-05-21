@@ -1,13 +1,77 @@
+<?php
+
+    include "conn.php";
+    $user_id = $_SESSION['user_id'];
+
+    if(isset($_POST['select']))
+    {
+        $order_by_out = $_POST['select'];
+    }
+    else
+    {
+        $order_by_out = 'product_id desc';
+    }
+    /*_--------adding product to wishlist-----------_*/
+    if(isset($_POST['add_to_wishlist'])){
+        $product_id=$_POST['product_id'];
+        $product_name=$_POST['product_name'];
+        $product_price=$_POST['product_price'];
+        $product_image=$_POST['product_image'];
+
+        if(isset($user_id))
+        {
+            $wishlist_number=pg_query($con,"SELECT * FROM wishlist where pid='$product_id' and u_id='$user_id';") or die ('query failed');
+            $cart_number=pg_query($con,"SELECT * FROM invoice_details where product_id='$product_id' and u_id= '$user_id' ANd invoice_num =last_invoice();") or die ('query failed');
+            if(pg_num_rows($wishlist_number)>0){
+                header('location:shop.php');
+            }else if(pg_num_rows($cart_number)>0){
+                header('location:shop.php');
+            }else{
+                pg_query($con,"INSERT INTO wishlist(u_id, pid)	VALUES ( '$user_id', '$product_id');");
+                header('location:shop.php');
+            }
+        }
+        else
+        {
+            header('location:login.php');
+        }
+    }
+
+    /*---------------add to cart--------*/
+    if(isset($_POST['add_to_cart'])){
+        $product_id=$_POST['product_id'];
+        $product_name=$_POST['product_name'];
+        $product_price=$_POST['product_price'];
+        $product_image=$_POST['product_image'];
+        $qty=1;
+
+        if(isset($user_id)){
+            $cart_number=pg_query($con,"SELECT * FROM invoice_details where product_id='$product_id' and u_id= '$user_id' ANd invoice_num =last_invoice();") or die ('query failed');
+            if(pg_num_rows($cart_number)>0){
+                header('location:shop.php');
+            }else{
+                pg_query($con,"INSERT INTO invoice_details(invoice_num, product_id, qty, unit_price, u_id) VALUES (last_invoice(), '$product_id', '$qty', $product_price, '$user_id');") or die('query failed');
+                header('location:shop.php');
+            }
+        }
+        else
+        {
+            header('location:login.php');
+        }
+    }
+    echo "<div style='background-color:blue;color:white;'></div>";
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="x-UA-compatible" content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Assets/css/all.css">
+        <link rel="stylesheet" href="Assets/font/css/all.css">
+        <link rel="stylesheet" href="Assets/css/style.css">
         <link rel="stylesheet" href="Assets/css/w&c.css">
         <link rel="stylesheet" href="Assets/css/a&c.css">
-        <title>WhiteHaTech Store</title>
+        <title>WhiteHATech Store</title>
         <link rel="icon" type="image/x-icon" href="Assets/imgs/logo2.ico">
 
     </head>
@@ -67,20 +131,24 @@
         </nav>
 
         <section id="about_us" class="section-p1">
-            <img src="1.jpeg" alt="">
+            <img src="Assets/imgs/header.jpg" alt="" style="
+    width: 50%;
+    height: 350px;
+    margin-right: 25px;
+">
             <div>
-                <h2>How We Are?</h2>   
+                <h2>Who We Are?</h2>   
                 <h6>We are a students in faculty of computers and information - suez university <br>  
-                    This is Our First Project This project about seals the books </h6>
+                    This is Our First Project This project about WhiteHATech Store </h6>
                 <br><br>
-                <marquee bgcolor="#ccc" loop="-1" scro11amount="5" width="100%">
-                    <h3>Welcome to our site</h3>
+                <marquee  loop="-1" scro11amount="5" width="100%">
+                    <h3 style="color: #3f37c9;">Welcome to our site</h3>
                 </marquee>
 
              </div>
         </section>
         <section id="about-app" class="section-p1">
-            <h1>Download Our <a href="#">app</a></h1>
+            <h2>Demo About Our <a href="index.php" style="text-decoration: none; color: #3f37c9;">Website</a></h2>
             <div class="video">
                 <video autoplay muted loop src="2.mp4"></video>
             </div>
@@ -88,7 +156,7 @@
 
         <footer id= "foo" class="section-p1">
             <div class="col">
-                <img src="image/logo.png" alt="">
+                <img src="Assets/imgs/logo2.png" alt="">
                 <h4>Contact</h4>
                 <p><strong>Address: </strong>Suez, El-Salam</p>
                 <p><strong>Phone: </strong> +201143320506</p>
@@ -105,28 +173,18 @@
                 <h4>About</h4>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms & conditions</a>
-                <a href="#">Contact Us</a>
+                <a href="contact.php">Contact Us</a>
             </div>
             <div class="col">
                 <h4>My Account</h4>
-                <a href="#">Sign In</a>
-                <a href="#">View Cart</a>
-                <a href="#">My Wishlist</a>
-                <a href="#">Help</a>
-            </div>
-            <div class="col install">
-                <h4>install App</h4>
-                <p>Form App Store or Google Play</p>
-                <div class="row">
-                    <a href="http://facebook.com"><img src="image/app.jpg" alt=""></a>
-                    <img src="image/play.jpg" alt="">
-                </div>
-                <p>Secured Payment Gateways </p>
-                <img src="image/pay.png" alt="">
+                <a href="cart.php">View Cart</a>
+                <a href="wishlist.php">My Wishlist</a>
+                <a href="contact.php">Help</a>
             </div>
             <div class="copyright">
-                <p>© 2023, WhiteHaTech - Computer Store</p>
+                <p>© 2023, WhiteHATech - Computer Store</p>
             </div>
         </footer >
-        <script src="script.js"></script>
+        <script src="Assets/js/script.js"></script>
     </body>
+</html>
