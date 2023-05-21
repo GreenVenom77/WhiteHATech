@@ -132,10 +132,10 @@
 
         <section id="about_us" class="section-p1">
             <img src="Assets/imgs/header.jpg" alt="" style="
-    width: 50%;
-    height: 350px;
-    margin-right: 25px;
-">
+                width: 50%;
+                height: 350px;
+                margin-right: 25px;
+            ">
             <div>
                 <h2>Who We Are?</h2>   
                 <h6>We are a students in faculty of computers and information - suez university <br>  

@@ -142,7 +142,7 @@
                     </li>
                 </div>
             </div>
-            <img src="dev_images/c.jpg" alt="">
+            <img src="dev_images/contact.png" alt="">
         </section>
         <section id="form-details">
             <?php 
