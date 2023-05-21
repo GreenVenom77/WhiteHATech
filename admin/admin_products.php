@@ -86,7 +86,7 @@ if(isset($_POST['update_product'])){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="font/css/all.css">
         <link rel="stylesheet" href="style.css">
-        <title>WhiteHaTech Store</title>
+        <title>WhiteHATech Store</title>
         <link rel="icon" type="image/x-icon" href="image/logo2.ico">
     </head>
 
@@ -214,9 +214,10 @@ if(isset($_POST['update_product'])){
                             $select_categories = pg_query($con,"select * from category order by category_name ASC") or die('query failed');
                             if(pg_num_rows($select_categories) > 0){
                                 while($fetch_categories = pg_fetch_assoc($select_categories)){
+                                    $selected = ($fetch_categories['category_id'] == $fetch_edit['category_id']) ? 'selected' : '';
 
                         ?>
-                                    <option value="<?php echo $fetch_categories['category_id']; ?>"><?php echo $fetch_categories['category_name']; ?></option>
+                                    <option value="<?php echo $fetch_categories['category_id']; ?>" <?php echo $selected; ?>><?php echo $fetch_categories['category_name']; ?></option>
                         <?php 
                                 }
                             }

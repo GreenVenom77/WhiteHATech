@@ -23,3 +23,13 @@ const closeBtn= document.querySelector('#close-edit');
 closeBtn.addEventListener('click',()=>{
     document.querySelector('.update-container').style.display='none';
 })
+
+const selectElement = document.querySelector('#select');
+
+selectElement.addEventListener('change', (event) => {
+    localStorage.setItem('selectedOption', event.target.value);
+});
+
+if (localStorage.getItem('selectedOption')) {
+    selectElement.value = localStorage.getItem('selectedOption');
+}
