@@ -57,10 +57,10 @@
                 <div class="box">
                     <?php
                     $total_completed = 0;
-                    $select_completed = pg_query($con,"SELECT * FROM orders where payment_status = 'completed'")
+                    $select_completed = pg_query($con,"SELECT * FROM invoice where payment_status = 'completed'")
                     or die('queury failed');
                     while($fetch_completed = pg_fetch_assoc($select_completed)){
-                        $total_completed += $fetch_completed['total_price'];
+                        $total_completed += $fetch_completed['total'];
                     }
                     ?>
                     <h3>$ <?php echo $total_completed; ?></h3>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="box">
                     <?php
-                    $select_orders = pg_query($con,"SELECT * FROM orders")
+                    $select_orders = pg_query($con,"SELECT * FROM invoice")
                     or die('queury failed');
                     $num_of_orders= pg_num_rows($select_orders);
                     ?>
