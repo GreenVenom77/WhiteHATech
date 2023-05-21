@@ -23,12 +23,12 @@
 .wrapper1
 {
     width: 100%;
-    background-image: url(../imgs/banner6.webp);
+    background-image: url(../imgs/RX6000SERIES.jpeg);
 }
 .wrapper2
 {
     width: 100%;
-    background-image: url(../imgs/rx.jpg);
+    background-image: url(../imgs/amd-ryzen-5000-banner-large.jpg);
     animation: slideTwoAnim 20s infinite;
 }
 .wrapper3

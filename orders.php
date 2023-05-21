@@ -109,7 +109,7 @@
             <h1 class = "title">Total placed orders</h1>
             <div class = "box-container">
                 <?php
-                    $sql1 = "SELECT distinct  invoice_date,user_name, total,email,method,address,number,u_id FROM invoice inner JOIN invoice_details ON invoice_details.invoice_num = invoice.invoice_num where u_id='$user_id'";
+                    $sql1 = "SELECT distinct invoice_date, user_name, total,email,method,address,number,u_id FROM invoice inner JOIN invoice_details ON invoice_details.invoice_num = invoice.invoice_num where u_id='$user_id'";
                     $select_orders = pg_query($con, $sql1) or die('query failed');
                     if(pg_num_rows($select_orders) > 0)
                     {
@@ -146,8 +146,8 @@
                     <h4>Follow us</h4>
                     <div class="icons">
                     <a href="http://facebook.com"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.instagram.com"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="https://twitter.com"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://twitter.com"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
             </div>

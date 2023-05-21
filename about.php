@@ -164,8 +164,8 @@
                     <h4>Follow us</h4>
                     <div class="icons">
                     <a href="http://facebook.com"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.instagram.com"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="https://twitter.com"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://twitter.com"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
