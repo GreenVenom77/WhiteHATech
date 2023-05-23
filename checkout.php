@@ -14,8 +14,8 @@
         $number=pg_escape_string($con,$_POST['number']);
         $method=pg_escape_string($con,$_POST['method']);
         $address=pg_escape_string($con,'flat no. '.$_POST['flate'].','.$_POST['street'].','.$_POST['city']) ;
-        pg_query($con,"INSERT INTO invoice( net_total, user_name, email, method, address, number)
-        VALUES ( 12, '$name', '$email', '$method', 'address', '$number');")  or die('failed');
+        pg_query($con,"INSERT INTO invoice( net_total, user_name, email, method, address, number, payment_status)
+        VALUES ( 12, '$name', '$email', '$method', '$address', '$number', 'pending');")  or die('failed');
         pg_query($con,"insert into invoice_details (invoice_num) values(last_invoice()+1)");
         header('location:cart.php');
     }
@@ -85,19 +85,19 @@
             <form method="post">
                 <div class="input-field">
                 <label>Your Name</label>
-                <input type="text" name="name" placeholder="Enter Your Name">
+                <input type="text" name="name" placeholder="Enter Your Name" required>
                 </div>
                 <div class="input-field">
                 <label>Your Number</label>
-                <input type="text" name="number" placeholder="Enter Your Number">
+                <input type="text" name="number" placeholder="Enter Your Number" required>
                 </div>
                 <div class="input-field">
                 <label>Your Email</label>
-                <input type="text" name="email" placeholder="Enter Your Email">
+                <input type="text" name="email" placeholder="Enter Your Email" required>
                 </div>
                 <div class="input-field">
                 <label>Select Payment Method</label>
-                <select name="method">
+                <select name="method" required>
                     <option selected disabled>Select Payment Method</option>
                     <option value="cash on delivery">cash on delivery</option>
                     <option value="credit card">credit card</option>
@@ -106,15 +106,15 @@
                 </div>
                 <div class="input-field">
                 <label>Flat :</label>
-                <input type="text" name="flate" placeholder="e.g flate no.">
+                <input type="text" name="flate" placeholder="e.g flate no." required>
                 </div>
                 <div class="input-field">
                 <label>Street :</label>
-                <input type="text" name="street" placeholder="e.g street">
+                <input type="text" name="street" placeholder="e.g street" required>
                 </div>
                 <div class="input-field">
                 <label>City :</label>
-                <input type="text" name="city" placeholder="e.g suez">
+                <input type="text" name="city" placeholder="e.g suez" required>
                 </div>
                 <input type="submit" name="order_btn" class="btn" value="order now">
             </form>

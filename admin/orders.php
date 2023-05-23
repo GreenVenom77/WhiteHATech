@@ -12,8 +12,6 @@
         $update_o_s = $_POST['update_payment'];
         $update_o_id = $_POST['order_id'];
         pg_query($con, "UPDATE invoice SET payment_status='$update_o_s' WHERE invoice_num='$update_o_id';") or die('query failed');
-        echo $update_o_id;
-        echo $update_o_s;
     }
 ?>
 <!DOCTYPE html>
