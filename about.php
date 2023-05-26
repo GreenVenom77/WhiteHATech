@@ -131,26 +131,20 @@
         </nav>
 
         <section id="about_us" class="section-p1">
-            <img src="Assets/imgs/header.jpg" alt="" style="
-                width: 50%;
-                height: 350px;
-                margin-right: 25px;
-            ">
-            <div>
-                <h2>Who We Are?</h2>   
-                <h6>We are a students in faculty of computers and information - suez university <br>  
-                    This is Our First Project This project about WhiteHATech Store </h6>
-                <br><br>
-                <marquee  loop="-1" scro11amount="5" width="100%">
-                    <h3 style="color: #3f37c9;">Welcome to our site</h3>
-                </marquee>
-
-             </div>
+            <div id ="content">
+                <h1>Who Are We?</h1>   
+                <h3>We are a students in faculty of computers and information - suez university. <br>  
+                    This project is about a computer online store and it took us 1 month to finish it. <br>
+                    this project was a new journey for us into web programming and desiging. <br>
+                    it had it's own difficulties.
+                </h3><br><br>
+                <img src="Assets/imgs/Grays.png" alt="">
+            </div>
         </section>
         <section id="about-app" class="section-p1">
             <h2>Demo About Our <a href="index.php" style="text-decoration: none; color: #3f37c9;">Website</a></h2>
             <div class="video">
-                <video autoplay loop src="Videos_&_PPT/WhiteHATech Trailer.mp4"></video>
+                <video autoplay loop src="Videos/WhiteHATech Trailer.mp4"></video>
             </div>
         </section>
 

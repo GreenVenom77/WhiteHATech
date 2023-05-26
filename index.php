@@ -158,9 +158,9 @@
 
             <div class="banner3">
                 <div class="detail">
-                    <span>All pc parts</span>
-                    <h1>Components</h1>
-                    <p>Order and we deliver</p>
+                    <span>Everything about PCs</span>
+                    <h1>Shop</h1>
+                    <p>Order and we Deliver</p>
                     <a href ="shop.php">Explore<i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>

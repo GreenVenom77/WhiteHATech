@@ -1,13 +1,17 @@
 #about_us {
-    display: flex;
+    display: center;
     align-items: center;
 }
 #about_us img {
-    width: 50%;
+    width: 1000px;
+    height: 514px;
+    position: center;
+    align-self: center;
 }
-#about_us div{
+#about_us #content{
+    position: center;
+    text-align: center;
     color:#000;
-    padding-left: 50px;
 }
 #about-app{
     text-align: center;
